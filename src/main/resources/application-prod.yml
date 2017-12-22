@@ -1,0 +1,6 @@
+server:
+  port: 8085
+logging:
+  file: mall.log
+  path: /var/log
+  level: DEBUG
