@@ -1,14 +1,5 @@
 server:
   port: 8081
-#配置logback
-logging:
-  config: classpath:config/logback-spring.xml
 spring:
   thymeleaf:
     cache: false
-#配置数据库
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/mall?useUnicode=true&characterEncoding=UTF-8&useSSL=false
-    username: root
-    password: 123456

@@ -1,6 +1,6 @@
 package com.zzax.mall.interceptor;
 
-import com.zzax.mall.entity.User;
+import com.zzax.mall.domain.Userinfo;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginInterceptor implements HandlerInterceptor{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        User user = (User) WebUtils.getSessionAttribute(request, "user");
+        Userinfo user = (Userinfo) WebUtils.getSessionAttribute(request, "userinfo");
         if (user == null){
             response.sendRedirect("/index");
             return false;

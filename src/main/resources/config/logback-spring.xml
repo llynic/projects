@@ -1,58 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <include resource="org/springframework/boot/logging/logback/base.xml" />
-    <logger name="org.springframework.web" level="INFO" />
+<configuration debug="false" scan="true" scanPeriod="10 seconds">
+    <contextName>logback</contextName>
+    <!-- 文件输出路径 -->
+    <property name="log.path" value="D:\\mall.log"/>
+    <!--文件输出格式
+        %p输出优先级，即DEBUG，INFO，WARN，ERROR，FATAL
+        %c输出所属的类目，通常就是所在类的全名
+        %m输出代码中指定的消息
+        %l输出日志事件的发生位置，包括类目名、发生的线程，以及在代码中的行数。举例：Testlog4.main(TestLog4.java:10)
+    -->
+    <property name="log.pattern" value="%d{yyyy-MM-dd HH:mm:ss} [%p][%c][%M][%L]-> %m%n"/>
 
-    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
-        </encoder>
-    </appender>
-
-    <springProfile name="prod">
-        <!-- 注意这里一定要放到springProfile里, 否则在你本机执行的时候还是会去找相应的文件 -->
-        <appender name="FILE"  class="ch.qos.logback.core.rolling.RollingFileAppender">
-            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-                <!--日志文件输出的文件名-->
-                <FileNamePattern>/services/logs/spring-boot-example.%d{yyyy-MM-dd}.log</FileNamePattern>
-                <!--日志文件保留天数-->
-                <maxHistory>100</maxHistory>
-                <totalSizeCap>10GB</totalSizeCap>
-            </rollingPolicy>
-            <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
-            </encoder>
-            <!--日志文件最大的大小-->
-            <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-                <MaxFileSize>10MB</MaxFileSize>
-
-            </triggeringPolicy>
-        </appender>
-
-        <appender name="asyncFileAppender" class="ch.qos.logback.classic.AsyncAppender">
-            <discardingThreshold>0</discardingThreshold>
-            <queueSize>500</queueSize>
-            <appender-ref ref="FILE" />
-        </appender>
-    </springProfile>
-
+    <!--开发环境-->
     <springProfile name="dev">
+        <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+            <!--开发环境中不需要定义每天生成日志文件,因此就不需要添加rollingPolicy节点-->
+            <encoder>
+                <pattern>${log.pattern}</pattern>
+            </encoder>
+        </appender>
         <root level="INFO">
-            <appender-ref ref="consoleAppender" />
+            <!--<root>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个logger。-->
+            <appender-ref ref="console"/>
         </root>
+        <!--定义在mapper包下里面输出DEBUG,可以方便我们查看sql语句-->
+        <logger name="com.zzax.mall.mapper" level="DEBUG" />
     </springProfile>
 
-    <springProfile name="junit">
-        <root level="INFO">
-            <appender-ref ref="consoleAppender" />
-            <appender-ref ref="asyncFileAppender" />
-        </root>
-    </springProfile>
+    <!--测试和生产环境-->
     <springProfile name="prod,test">
-        <root level="INFO">
-            <appender-ref ref="asyncFileAppender" />
-        </root>
-    </springProfile>
+        <!--输出日志到文件-->
+        <!--第一个节点:appender节点是必需节点,用来格式化日志输出-->
+        <appender name="prod" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <!--日志路径-->
+            <file>${log.path}</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <!--每天生成的日志名称-->
+                <fileNamePattern>${log.path}/info.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <!--表示只保留最近100天的日志，以防止日志填满整个磁盘空间-->
+                <MaxHistory>100</MaxHistory>
+                <!--用来指定日志文件的上限大小，例如设置为1GB的话，那么到了这个值，就会删除旧的日志-->
+                <totalSizeCap>1GB</totalSizeCap>
+            </rollingPolicy>
+            <!--日志格式-->
+            <encoder>
+                <pattern>${log.pattern}</pattern>
+            </encoder>
+        </appender>
 
+        <!--第二个节点是root节点是必须节点,用来指定最基础的日志输出级别，只有一个level属性
+            默认是DEBUG
+        -->
+        <root level="INFO">
+            <!--<root>可以包含零个或多个<appender-ref>元素，标识这个appender将会添加到这个logger。-->
+            <appender-ref ref="prod"/>
+        </root>
+
+        <!--
+            logger节点，可选节点，用来设置某一个包或者具体的某一个类的日志打印级别，它将会覆盖root的输出级别
+            logger仅有一个name属性，一个可选的level和一个可选的addtivity属性。
+            level:用来设置打印级别，大小写无关：TRACE, DEBUG, INFO, WARN, ERROR, ALL 和 OFF，
+                还有一个特俗值INHERITED或者同义词NULL，代表强制执行上级的级别。如果未设置此属性，那么当前logger将会继承上级的级别。
+             addtivity:是否向上级logger传递打印信息。默认是true。
+        -->
+        <logger name="com.llynic.malldemo.mapper" level="DEBUG" />
+    </springProfile>
 </configuration>

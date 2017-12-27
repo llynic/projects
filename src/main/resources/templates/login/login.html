@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="common/header::header">
+<head>
+    <title th:text="欢迎登陆">title</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>欢迎登陆</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap/bootstrap.css}"/>
+    <script th:src="@{js/jquery/jquery-3.0.0.min.js}"></script>
+    <script th:src="@{js/bootstrap/bootstrap.js}"></script>
+    <script th:src="@{js/login/login.js}"></script>
 </head>
 <body>
 
-    <form th:action="@{/login}" th:object="${user}" method="post">
-        <div class="form-group">
-            <label>用户名</label>
-            <input type="text" th:placeholder="请输入用户名"/>
+<form th:id="loginFrom" class="form-horizontal" th:action="@{#}" th:object="${user}" method="post">
+    <div class="form-group">
+        <label for="inputName" class="col-sm-2 control-label">用户名</label>
+        <div class="col-sm-3">
+            <input type="text" id="inputName" class="form-control" th:placeholder="请输入用户名" th:name="username"/>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">密码</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" th:placeholder="请输入密码"/>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword" class="col-sm-2 control-label">密码</label>
+        <div class="col-sm-3">
+            <input type="password" class="form-control" id="inputPassword" th:placeholder="请输入密码" th:name="password"/>
         </div>
-        <input type="submit"/>
-    </form>
-    <div th:include="common/footer::copy"></div>
+    </div>
+    <button th:id="btn" type="button" class="btn btn-primary" th:text="登陆"></button>
+</form>
+<div th:include="common/footer::copy"></div>
 </body>
 </html>
