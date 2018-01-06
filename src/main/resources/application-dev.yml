@@ -2,4 +2,13 @@ server:
   port: 8081
 spring:
   thymeleaf:
+    enabled: true
     cache: false
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    suffix: .html
+    prefix: classpath:/templates/
+
+
+

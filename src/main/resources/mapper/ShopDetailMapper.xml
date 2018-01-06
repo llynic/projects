@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zzax.mall.mapper.ShopDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.zzax.mall.domain.ShopDetail" >
+    <constructor >
+      <idArg column="ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BRAND" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="COUNT" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="PRICE" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="MANUFACTURER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DEPOT_ADDRESS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GRANTS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WARRANTY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YEAR_TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ENVIRONMENTAL_STANDARDS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ENGINE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GEARBOX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DRIVER_MODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CAR_BODY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FRONT_TIRE_SIZE" jdbcType="DOUBLE" javaType="java.lang.Double" />
+      <arg column="REAR_TIRE_SIZE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VIN" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, CODE, STATUS, BRAND, COUNT, PRICE, MANUFACTURER, DEPOT_ADDRESS, GRANTS, 
+    WARRANTY, YEAR_TYPE, ENVIRONMENTAL_STANDARDS, ENGINE, GEARBOX, DRIVER_MODE, CAR_BODY, 
+    FRONT_TIRE_SIZE, REAR_TIRE_SIZE, VIN
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_shopdetail
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_shopdetail
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zzax.mall.domain.ShopDetail" >
+    insert into t_shopdetail (ID, NAME, CODE, 
+      STATUS, BRAND, COUNT, 
+      PRICE, MANUFACTURER, DEPOT_ADDRESS, 
+      GRANTS, WARRANTY, YEAR_TYPE, 
+      ENVIRONMENTAL_STANDARDS, ENGINE, GEARBOX, 
+      DRIVER_MODE, CAR_BODY, FRONT_TIRE_SIZE, 
+      REAR_TIRE_SIZE, VIN)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, 
+      #{price,jdbcType=DECIMAL}, #{manufacturer,jdbcType=VARCHAR}, #{depotAddress,jdbcType=VARCHAR}, 
+      #{grants,jdbcType=VARCHAR}, #{warranty,jdbcType=VARCHAR}, #{yearType,jdbcType=VARCHAR}, 
+      #{environmentalStandards,jdbcType=VARCHAR}, #{engine,jdbcType=VARCHAR}, #{gearbox,jdbcType=VARCHAR}, 
+      #{driverMode,jdbcType=VARCHAR}, #{carBody,jdbcType=VARCHAR}, #{frontTireSize,jdbcType=DOUBLE}, 
+      #{rearTireSize,jdbcType=VARCHAR}, #{vin,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zzax.mall.domain.ShopDetail" >
+    insert into t_shopdetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="brand != null" >
+        BRAND,
+      </if>
+      <if test="count != null" >
+        COUNT,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="manufacturer != null" >
+        MANUFACTURER,
+      </if>
+      <if test="depotAddress != null" >
+        DEPOT_ADDRESS,
+      </if>
+      <if test="grants != null" >
+        GRANTS,
+      </if>
+      <if test="warranty != null" >
+        WARRANTY,
+      </if>
+      <if test="yearType != null" >
+        YEAR_TYPE,
+      </if>
+      <if test="environmentalStandards != null" >
+        ENVIRONMENTAL_STANDARDS,
+      </if>
+      <if test="engine != null" >
+        ENGINE,
+      </if>
+      <if test="gearbox != null" >
+        GEARBOX,
+      </if>
+      <if test="driverMode != null" >
+        DRIVER_MODE,
+      </if>
+      <if test="carBody != null" >
+        CAR_BODY,
+      </if>
+      <if test="frontTireSize != null" >
+        FRONT_TIRE_SIZE,
+      </if>
+      <if test="rearTireSize != null" >
+        REAR_TIRE_SIZE,
+      </if>
+      <if test="vin != null" >
+        VIN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="manufacturer != null" >
+        #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="depotAddress != null" >
+        #{depotAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="grants != null" >
+        #{grants,jdbcType=VARCHAR},
+      </if>
+      <if test="warranty != null" >
+        #{warranty,jdbcType=VARCHAR},
+      </if>
+      <if test="yearType != null" >
+        #{yearType,jdbcType=VARCHAR},
+      </if>
+      <if test="environmentalStandards != null" >
+        #{environmentalStandards,jdbcType=VARCHAR},
+      </if>
+      <if test="engine != null" >
+        #{engine,jdbcType=VARCHAR},
+      </if>
+      <if test="gearbox != null" >
+        #{gearbox,jdbcType=VARCHAR},
+      </if>
+      <if test="driverMode != null" >
+        #{driverMode,jdbcType=VARCHAR},
+      </if>
+      <if test="carBody != null" >
+        #{carBody,jdbcType=VARCHAR},
+      </if>
+      <if test="frontTireSize != null" >
+        #{frontTireSize,jdbcType=DOUBLE},
+      </if>
+      <if test="rearTireSize != null" >
+        #{rearTireSize,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzax.mall.domain.ShopDetail" >
+    update t_shopdetail
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        BRAND = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null" >
+        COUNT = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="manufacturer != null" >
+        MANUFACTURER = #{manufacturer,jdbcType=VARCHAR},
+      </if>
+      <if test="depotAddress != null" >
+        DEPOT_ADDRESS = #{depotAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="grants != null" >
+        GRANTS = #{grants,jdbcType=VARCHAR},
+      </if>
+      <if test="warranty != null" >
+        WARRANTY = #{warranty,jdbcType=VARCHAR},
+      </if>
+      <if test="yearType != null" >
+        YEAR_TYPE = #{yearType,jdbcType=VARCHAR},
+      </if>
+      <if test="environmentalStandards != null" >
+        ENVIRONMENTAL_STANDARDS = #{environmentalStandards,jdbcType=VARCHAR},
+      </if>
+      <if test="engine != null" >
+        ENGINE = #{engine,jdbcType=VARCHAR},
+      </if>
+      <if test="gearbox != null" >
+        GEARBOX = #{gearbox,jdbcType=VARCHAR},
+      </if>
+      <if test="driverMode != null" >
+        DRIVER_MODE = #{driverMode,jdbcType=VARCHAR},
+      </if>
+      <if test="carBody != null" >
+        CAR_BODY = #{carBody,jdbcType=VARCHAR},
+      </if>
+      <if test="frontTireSize != null" >
+        FRONT_TIRE_SIZE = #{frontTireSize,jdbcType=DOUBLE},
+      </if>
+      <if test="rearTireSize != null" >
+        REAR_TIRE_SIZE = #{rearTireSize,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        VIN = #{vin,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzax.mall.domain.ShopDetail" >
+    update t_shopdetail
+    set NAME = #{name,jdbcType=VARCHAR},
+      CODE = #{code,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      BRAND = #{brand,jdbcType=VARCHAR},
+      COUNT = #{count,jdbcType=INTEGER},
+      PRICE = #{price,jdbcType=DECIMAL},
+      MANUFACTURER = #{manufacturer,jdbcType=VARCHAR},
+      DEPOT_ADDRESS = #{depotAddress,jdbcType=VARCHAR},
+      GRANTS = #{grants,jdbcType=VARCHAR},
+      WARRANTY = #{warranty,jdbcType=VARCHAR},
+      YEAR_TYPE = #{yearType,jdbcType=VARCHAR},
+      ENVIRONMENTAL_STANDARDS = #{environmentalStandards,jdbcType=VARCHAR},
+      ENGINE = #{engine,jdbcType=VARCHAR},
+      GEARBOX = #{gearbox,jdbcType=VARCHAR},
+      DRIVER_MODE = #{driverMode,jdbcType=VARCHAR},
+      CAR_BODY = #{carBody,jdbcType=VARCHAR},
+      FRONT_TIRE_SIZE = #{frontTireSize,jdbcType=DOUBLE},
+      REAR_TIRE_SIZE = #{rearTireSize,jdbcType=VARCHAR},
+      VIN = #{vin,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

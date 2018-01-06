@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zzax.mall.mapper.OrderDetailMapper" >
+  <resultMap id="BaseResultMap" type="com.zzax.mall.domain.OrderDetail" >
+    <constructor >
+      <idArg column="ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PAY_TIME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUYER_ADDRESS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUYER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BUYER_TEL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="POSTCODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MESSAGE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NICKNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REALNAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SELLER_TEL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PRICE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CODE, CREATE_TIME, PAY_TIME, BUYER_ADDRESS, BUYER, BUYER_TEL, POSTCODE, MESSAGE, 
+    NICKNAME, REALNAME, SELLER_TEL, PRICE, STATUS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_orderdetail
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_orderdetail
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zzax.mall.domain.OrderDetail" >
+    insert into t_orderdetail (ID, CODE, CREATE_TIME, 
+      PAY_TIME, BUYER_ADDRESS, BUYER, 
+      BUYER_TEL, POSTCODE, MESSAGE, 
+      NICKNAME, REALNAME, SELLER_TEL, 
+      PRICE, STATUS)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
+      #{payTime,jdbcType=VARCHAR}, #{buyerAddress,jdbcType=VARCHAR}, #{buyer,jdbcType=VARCHAR}, 
+      #{buyerTel,jdbcType=VARCHAR}, #{postcode,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, 
+      #{nickname,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{sellerTel,jdbcType=VARCHAR}, 
+      #{price,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zzax.mall.domain.OrderDetail" >
+    insert into t_orderdetail
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="payTime != null" >
+        PAY_TIME,
+      </if>
+      <if test="buyerAddress != null" >
+        BUYER_ADDRESS,
+      </if>
+      <if test="buyer != null" >
+        BUYER,
+      </if>
+      <if test="buyerTel != null" >
+        BUYER_TEL,
+      </if>
+      <if test="postcode != null" >
+        POSTCODE,
+      </if>
+      <if test="message != null" >
+        MESSAGE,
+      </if>
+      <if test="nickname != null" >
+        NICKNAME,
+      </if>
+      <if test="realname != null" >
+        REALNAME,
+      </if>
+      <if test="sellerTel != null" >
+        SELLER_TEL,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAddress != null" >
+        #{buyerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyer != null" >
+        #{buyer,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTel != null" >
+        #{buyerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTel != null" >
+        #{sellerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzax.mall.domain.OrderDetail" >
+    update t_orderdetail
+    <set >
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        PAY_TIME = #{payTime,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerAddress != null" >
+        BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="buyer != null" >
+        BUYER = #{buyer,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerTel != null" >
+        BUYER_TEL = #{buyerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="postcode != null" >
+        POSTCODE = #{postcode,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null" >
+        MESSAGE = #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        NICKNAME = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="realname != null" >
+        REALNAME = #{realname,jdbcType=VARCHAR},
+      </if>
+      <if test="sellerTel != null" >
+        SELLER_TEL = #{sellerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzax.mall.domain.OrderDetail" >
+    update t_orderdetail
+    set CODE = #{code,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      PAY_TIME = #{payTime,jdbcType=VARCHAR},
+      BUYER_ADDRESS = #{buyerAddress,jdbcType=VARCHAR},
+      BUYER = #{buyer,jdbcType=VARCHAR},
+      BUYER_TEL = #{buyerTel,jdbcType=VARCHAR},
+      POSTCODE = #{postcode,jdbcType=VARCHAR},
+      MESSAGE = #{message,jdbcType=VARCHAR},
+      NICKNAME = #{nickname,jdbcType=VARCHAR},
+      REALNAME = #{realname,jdbcType=VARCHAR},
+      SELLER_TEL = #{sellerTel,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

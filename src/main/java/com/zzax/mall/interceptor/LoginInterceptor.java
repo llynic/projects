@@ -1,7 +1,9 @@
 package com.zzax.mall.interceptor;
 
-import com.zzax.mall.domain.Userinfo;
-import org.springframework.context.annotation.Configuration;
+import com.zzax.mall.domain.User;
+import com.zzax.mall.util.SessionUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
@@ -14,13 +16,16 @@ import javax.servlet.http.HttpServletResponse;
  * @Created By : wangzhenjia
  * @DATE 2017-12-22 11:07 星期五
  */
-@Configuration
+
 public class LoginInterceptor implements HandlerInterceptor{
+    public static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        Userinfo user = (Userinfo) WebUtils.getSessionAttribute(request, "userinfo");
-        if (user == null){
-            response.sendRedirect("/index");
+        String requestURI = request.getRequestURI();
+        User user = SessionUtil.getUserInSession();
+        if (requestURI.contains("/index") && null == user) {
+            response.sendRedirect("/home");
             return false;
         }
         return true;

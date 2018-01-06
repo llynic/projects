@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zzax.mall.mapper.ReceiptMapper" >
+  <resultMap id="BaseResultMap" type="com.zzax.mall.domain.Receipt" >
+    <constructor >
+      <idArg column="ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PRICE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BRAND" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DEPOT_ADDRESS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CODE, PRICE, STATUS, BRAND, DEPOT_ADDRESS, VALID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_receipt
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_receipt
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zzax.mall.domain.Receipt" >
+    insert into t_receipt (ID, CODE, PRICE, 
+      STATUS, BRAND, DEPOT_ADDRESS, 
+      VALID)
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{depotAddress,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zzax.mall.domain.Receipt" >
+    insert into t_receipt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="price != null" >
+        PRICE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="brand != null" >
+        BRAND,
+      </if>
+      <if test="depotAddress != null" >
+        DEPOT_ADDRESS,
+      </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="depotAddress != null" >
+        #{depotAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzax.mall.domain.Receipt" >
+    update t_receipt
+    <set >
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        PRICE = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null" >
+        BRAND = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="depotAddress != null" >
+        DEPOT_ADDRESS = #{depotAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzax.mall.domain.Receipt" >
+    update t_receipt
+    set CODE = #{code,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      BRAND = #{brand,jdbcType=VARCHAR},
+      DEPOT_ADDRESS = #{depotAddress,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

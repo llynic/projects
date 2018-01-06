@@ -1,6 +1,6 @@
 package com.zzax.mall.controller;
 
-import com.zzax.mall.domain.Userinfo;
+import com.zzax.mall.domain.User;
 import com.zzax.mall.entity.JsonResult;
 import com.zzax.mall.enums.Result;
 import com.zzax.mall.service.LoginService;
@@ -21,12 +21,12 @@ public class LoginController {
 
     /**
      * 用户提交登录信息
-     * @param userinfo
+     * @param user
      * @return json信息
      */
     @PostMapping("/login")
-    public JsonResult login(Userinfo userinfo){
-        Result result = loginService.login(userinfo);
+    public JsonResult login(User user){
+        Result result = loginService.login(user);
         return JsonResult.parse(result);
     }
 

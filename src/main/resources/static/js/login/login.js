@@ -1,9 +1,8 @@
 $(function () {
-
     $('#btn').click(function () {
-        if ($('#inputName').val() == ''){
+        if ($('#username').val() == ''){
             alert('账号不能为空');
-        }else if($('#inputPassword').val() == ''){
+        }else if($('#password').val() == ''){
             alert('密码不能为空');
         }else {
             $.ajax({
@@ -15,7 +14,7 @@ $(function () {
                     alert(data.message);
                     if (data.success){
                         //成功后该怎么做
-
+                        window.location.href="/index"
                     }else{
                         //失败后该怎么做
                     }
@@ -26,7 +25,4 @@ $(function () {
             })
         }
     });
-
-
-
 });

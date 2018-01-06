@@ -8,8 +8,8 @@ package com.zzax.mall.enums;
 public enum Result {
     LOGIN_SUCCESS(true,0000,"登陆成功"),
     LOGIN_FAILURE(false,1000,"用户名或者密码错误,请确认后重新输入"),
-    USERNAME_NULL(false,1001,"用户名不能为空"),
-    PASSWORD_NULL(false,1002,"密码不能为空");
+    USERNAME_NULL(false,1001,"请输入用户名"),
+    PASSWORD_NULL(false,1002,"请输入密码");
 
     private boolean success = false;
     private Integer errCode = 0;

@@ -1,7 +1,5 @@
 package com.zzax.mall.service;
 
-import com.zzax.mall.domain.OrderDetail;
-
 import java.math.BigDecimal;
 
 /**
@@ -15,32 +13,32 @@ public interface OrderDetailService {
      * @param orderDetail
      * @return
      */
-    OrderDetail addOrderDetail(OrderDetail orderDetail);
+    //OrderDetail addOrderDetail(OrderDetail orderDetail);
 
     /**
      * 删除订单详情
      * @param id
      */
-    void delOrderDetail(String id);
+    //void delOrderDetail(String id);
 
     /**
      * 更新订单详情
      * @param orderDetail
      * @return
      */
-    OrderDetail updateOrderDetail(OrderDetail orderDetail);
+    //OrderDetail updateOrderDetail(OrderDetail orderDetail);
 
     /**
      * 获取订单总价格
      * @param userCode
      * @return
      */
-    BigDecimal getOrderDetailAmount(String userCode);
+    //BigDecimal getOrderDetailAmount(String userCode);
 
     /**
      * 获取订单详情
      * @param id
      * @return
      */
-    OrderDetail getOrderDetail(String id);
+    //OrderDetail getOrderDetail(String id);
 }
