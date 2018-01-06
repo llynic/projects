@@ -6,6 +6,7 @@ import com.zzax.mall.enums.Result;
 import com.zzax.mall.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @DATE 2017-12-22 11:04 星期五
  */
 @RestController
+@RequestMapping("/user")
 public class LoginController {
 
     @Autowired

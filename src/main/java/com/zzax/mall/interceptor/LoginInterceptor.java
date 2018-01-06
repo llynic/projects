@@ -22,12 +22,13 @@ public class LoginInterceptor implements HandlerInterceptor{
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        String requestURI = request.getRequestURI();
+        /*String requestURI = request.getRequestURI();
         User user = SessionUtil.getUserInSession();
-        if (requestURI.contains("/index") && null == user) {
+        if ((requestURI.contains("/receipt") || requestURI.contains("/order") ||requestURI.contains("/shop") ) && null == user) {
+            logger.info("这里?");
             response.sendRedirect("/home");
             return false;
-        }
+        }*/
         return true;
     }
 

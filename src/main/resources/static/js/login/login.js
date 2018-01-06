@@ -6,7 +6,7 @@ $(function () {
             alert('密码不能为空');
         }else {
             $.ajax({
-                url:'/login',
+                url:'/user/login',
                 type: 'POST',
                 dataType:'json',
                 data:$('#loginFrom').serialize(),
@@ -14,7 +14,7 @@ $(function () {
                     alert(data.message);
                     if (data.success){
                         //成功后该怎么做
-                        window.location.href="/index"
+                        window.location.href="/receipt/myReceipts"
                     }else{
                         //失败后该怎么做
                     }
