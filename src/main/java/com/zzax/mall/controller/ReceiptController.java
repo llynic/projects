@@ -17,12 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ReceiptController {
     public static final Logger logger = LoggerFactory.getLogger(ReceiptController.class);
 
-    @GetMapping("/myReceipts")
+    @GetMapping("/myreceipt")
     public String index(){
-        logger.info("212312312");
-        //return "receipt/hello";
-        return "receipt/index";
+        return "receipt/series";
     }
+
 
 
 }

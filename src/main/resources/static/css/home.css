@@ -1,0 +1,13 @@
+.header{
+    background: url('/images/head-bg.png');
+    height: 42px;
+}
+.title{
+    padding-top: 11px;
+    padding-left: 25px;
+}
+.footer{
+    position: absolute;
+    bottom: 10px;
+    padding-left: 625px;
+}

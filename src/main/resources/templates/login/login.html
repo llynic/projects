@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>汽车商城-登录页面</title>
@@ -72,7 +72,6 @@
                             <table width="224" border="0" cellspacing="0" cellpadding="0">
                                 <tr>
                                     <td height="24"><a href="#none" class="mm">忘记登录密码？</a></td>
-                                    <!--<td align="right"><a href="#none" class="zc" style="font-size:13px;">立即网上注册</a></td>-->
                                 </tr>
                             </table>
                         </td>
@@ -82,6 +81,6 @@
         </div>
     </div>
 </div>
-<div class="footer">Copyright &copy; 2018 zzax.com All Rights Reserved　版权所有 郑州</div>
+<div class="footer" th:include="fragments/footer :: footer"></div>
 </body>
 </html>
