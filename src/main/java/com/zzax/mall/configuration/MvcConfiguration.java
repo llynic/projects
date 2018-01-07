@@ -23,8 +23,9 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/home").setViewName("/login/login");
-        //registry.addViewController("/receipts").setViewName("/receiptPages/my_receipts_list");
+        registry.addViewController("/login").setViewName("/login/login");
+        registry.addViewController("/home").setViewName("/home/home");
+        registry.addViewController("/receipt/myreceipt").setViewName("/receipt/series");
     }
 
     @Override

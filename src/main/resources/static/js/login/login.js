@@ -14,7 +14,7 @@ $(function () {
                     alert(data.message);
                     if (data.success){
                         //成功后该怎么做
-                        window.location.href="/receipt/myReceipts"
+                        window.location.href="/home"
                     }else{
                         //失败后该怎么做
                     }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>后台管理系统</title>
+    <link rel="stylesheet" th:href="@{/css/receipt/style.css}"/>
+    <link rel="stylesheet" th:href="@{/css/receipt/jquery.wysiwyg.old-school.css}"/>
+
+    <!-- jQuery AND jQueryUI -->
+    <script type="text/javascript" th:src="@{/js/jquery/jquery-3.0.0.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/jquery/jquery-ui.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/receipt/min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/receipt/main.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/receipt/style2.css}"/>
+</head>
+
+<body>
+<!--     内容      -->
+<div id="content" class="white">
+    <h1 style="color: black">欢迎您的登录</h1>
+    <div class="bloc right" style="margin-top: 20px;">
+        <div class="title"> 登陆信息</div>
+        <div class="content">
+            <div>
+                <table class="noalt">
+                    <tbody>
+                    <tr>
+                        <td><h6>用户名: llynic</h6></td>
+                    </tr>
+                    <tr>
+                        <td><h6>用户角色：普通用户</h6></td>
+                    </tr>
+                    <tr>
+                        <td><h6>上次登录时间：2018-01-07 12:21:21</h6></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="cb"></div>
+        </div>
+    </div>
+    <div class="cb"></div>
+</div>
+<div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+</body>
+</html>

@@ -1,5 +1,4 @@
 jQuery(function($){
-    
     $('#settings a.backgroundChanger').each(function(){
         $(this).css('background',$(this).attr('href'));
     });

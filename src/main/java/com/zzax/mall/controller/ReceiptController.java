@@ -20,6 +20,7 @@ public class ReceiptController {
     @GetMapping("/myReceipts")
     public String index(){
         logger.info("212312312");
+        //return "receipt/hello";
         return "receipt/index";
     }
 
