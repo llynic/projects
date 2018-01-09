@@ -17,8 +17,8 @@
     <script th:src="@{/js/jquery/jquery-3.0.0.min.js}"></script>
     <script th:src="@{/js/jquery/jquery-ui.min.js}"></script>
 </head>
-<body class="layout-fixed">
-<div th:fragment="navbar" class="wrapper" role="navigation">
+<body>
+<div th:fragment="navbar" role="navigation">
     <div th:replace="fragments/header :: header">Header</div>
     <div th:replace="fragments/left :: left">Left</div>
     <div layout:fragment="content" id="content"></div>
