@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @Description 我的仓单模块
@@ -17,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ReceiptController {
     public static final Logger logger = LoggerFactory.getLogger(ReceiptController.class);
 
-    @GetMapping("/myreceipt")
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String index(){
-        return "receipt/series";
+        return "receipt/list";
     }
 
 

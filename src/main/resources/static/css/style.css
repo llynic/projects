@@ -21,6 +21,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	outline: 0;
 }
 body {
+	font-size: 12px;
 	line-height: 1;
 	color: black;
 	background: white;
@@ -264,7 +265,7 @@ body{
 	display: block;
 	text-decoration: none;
 	font-weight: normal;
-	font-size: 1em;
+	font-size: 12px;
 	background: transparent url(../../../../images/sideli.png) no-repeat 37px 10px;
 	color: #949090;
 }
@@ -293,7 +294,7 @@ body{
 #content{
 	margin: 28px 40px 0px 280px;
 	color: #6D6D6D;
-	padding: 0px 0px 20px;
+	/*padding: 0px 0px 20px;*/
 	font-size: 12px;
 	position: relative;
 }
@@ -680,9 +681,9 @@ body{
 	border-bottom: 1px solid #DADADA;
 	border-top: 1px solid #FFFFFF;
 }
-#content table tbody tr:nth-child(2n+1) td{
+/*#content table tbody tr:nth-child(2n+1) td{
 	background-color: #F0F0F0;
-}
+}*/
 #content table tbody tr:hover td{
 	background-color: #EAEAEA;
 	border-bottom: 1px solid #CACACA;
@@ -705,51 +706,11 @@ body{
 }
 /** Pagination**/
 #content .pagination{
-	text-align: right;
+	text-align: center;
 	margin: 10px -7px 10px 10px;
 	/*[empty]border:;*/
 }
-#content .pagination a{
-	display: inline-block;
-	height: 20px;
-	width: 20px;
-	line-height: 20px;
-	margin: 0 1px 0 0;
-	border: 1px solid #DAD9D9;
-	text-align: center;
-	text-decoration: none;
-	color: #646161;
-	/*+border-radius:3px;*/
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-khtml-border-radius: 3px;
-	border-radius: 3px 3px 3px 3px;
-}
-#content .pagination a.next, #content .pagination a.prev{
-	border: 1px solid #FFFFFF;
-}
-#content .pagination a.current, #content .pagination a:hover{
-	background: url(../../../../images/buttons.png) left -68px;
-	border: 1px solid #3580A9;
-	/*+text-shadow:0px -1px 0px #2C6AA3;*/
-	-moz-text-shadow: 0px -1px 0px #2C6AA3;
-	-webkit-text-shadow: 0px -1px 0px #2C6AA3;
-	-o-text-shadow: 0px -1px 0px #2C6AA3;
-	text-shadow: 0px -1px 0px #2C6AA3;
-	color: #D4E6EF;
-	font-weight: bold;
-}
-#content .pagination a.next:hover, #content .pagination a.prev:hover{
-	background: none;
-	/*+text-shadow:none;*/
-	-moz-text-shadow: none;
-	-webkit-text-shadow: none;
-	-o-text-shadow: none;
-	text-shadow: none;
-	color: #646161;
-	font-weight: normal;
-	border-color: #F7F7F7;
-}
+
 /** Notification **/
 #content .notif{
   position: relative;
@@ -1754,7 +1715,7 @@ plugin styles*/
 /***********************************************  COLORS **********************************************************
 Background*/
 .dark{
-	background: url(../../images/dark-bg.png);
+	background: url(../images/dark-bg.png);
 }
 .wood{
 	background: url(../../images/wood.jpg) fixed center top;

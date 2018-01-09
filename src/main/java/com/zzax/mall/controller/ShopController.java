@@ -15,10 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/shop")
 public class ShopController {
-    public static final Logger logger = LoggerFactory.getLogger(ReceiptController.class);
+    public static final Logger logger = LoggerFactory.getLogger(ShopController.class);
 
-    @GetMapping("/myshop")
-    public String index(){
-        return "receipt/accessory";
+    /**
+     * 我的仓单列表
+     * @return
+     */
+    @GetMapping("/list")
+    public String shopList(){
+        return "shop/list";
     }
 }
