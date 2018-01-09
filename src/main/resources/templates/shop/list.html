@@ -15,9 +15,210 @@
         <input class="search" type="text" value="" placeholder="输入商品标题或者订单号进行搜索"/>
         <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">订单搜索</a>
     </div>
-    <div>
 
+    <table style="background-color: #f5f5f5;height: 36px;">
+        <tbody>
+        <tr>
+            <th class="col-md-4" style="padding-top: 10px;text-align: center;">商品</th>
+            <th class="col-md-1" style="text-align: center">单价</th>
+            <th class="col-md-1" style="text-align: center">数量</th>
+            <th class="col-md-1" style="text-align: center">商品操作</th>
+            <th class="col-md-1" style="text-align: center">实付款</th>
+            <th class="col-md-1" style="text-align: center">商品状态</th>
+            <th class="col-md-1" style="text-align: center">交易操作</th>
+        </tr>
+        </tbody>
+    </table>
+    <div style="height: 10px;background-color: #ffffff"></div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading" style="padding: 0px 15px;">
+            <table>
+                <tbody style="background-color: #f5f5f5;">
+                <tr>
+                    <th class="col-md-4" style="height: 36px;"><label>2018-01-09</label><span>订单号:111222333444555</span>
+                    </th>
+                    <th class="col-md-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
+                    <th class="col-md-2" style="height: 36px;"><a>和我联系</a></th>
+                    <th class="col-md-2" style="height: 36px;"><p style="text-align: right;">删除</p></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-body" style="padding: 0px;">
+            <table>
+                <tbody class="ssss">
+                <tr>
+                    <td class="col-md-4" style="text-align: center">
+                        <div>
+                            <div>image</div>
+                            <div>content</div>
+                        </div>
+                    </td>
+                    <td class="col-md-1" style="text-align: center">
+                        <div>
+                            <p>$89</p>
+                            <p>$80</p>
+                        </div>
+                    </td>
+                    <td class="col-md-1" style="text-align: center">
+                        <div>
+                            <p>1</p>
+                        </div>
+                    </td>
+                    <td class="col-md-1" style="text-align: center">
+                        <div>
+                            <p>违规举报</p>
+                        </div>
+                    </td>
+                    <td class="col-md-1" style="text-align: center">
+                        <div>
+                            <div></div>
+                            <p>$192</p>
+                            <div></div>
+                        </div>
+                    </td>
+                    <td class="col-md-1" style="text-align: center">
+                        <div>
+                            <p>未发布</p>
+                            <div>
+                                <p></p>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="col-md-1" style="text-align: center">
+                        <div>
+                            <p>追加评论</p>
+                            <p>再次购买</p>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+    <div style="margin-top: 10px;border: 1px solid #ececec;">
+        <table>
+            <tbody style="background-color: #f5f5f5;">
+            <tr>
+                <th class="col-md-4" style="height: 36px;"><label>2018-01-09</label><span>订单号:111222333444555</span>
+                </th>
+                <th class="col-md-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
+                <th class="col-md-2" style="height: 36px;"><a>和我联系</a></th>
+                <th class="col-md-2" style="height: 36px;"><p style="text-align: right;">删除</p></th>
+            </tr>
+            </tbody>
+            <tbody class="ssss">
+            <tr class="change">
+                <td class="col-md-4" style="text-align: center">
+                    <div>
+                        <div>image</div>
+                        <div>content</div>
+                    </div>
+                </td>
+                <td class="col-md-1" style="text-align: center">
+                    <div>
+                        <p>$89</p>
+                        <p>$80</p>
+                    </div>
+                </td>
+                <td class="col-md-1" style="text-align: center">
+                    <div>
+                        <p>1</p>
+                    </div>
+                </td>
+                <td class="col-md-1" style="text-align: center">
+                    <div>
+                        <p>违规举报</p>
+                    </div>
+                </td>
+                <td class="col-md-1" style="text-align: center">
+                    <div>
+                        <div></div>
+                        <p>$192</p>
+                        <div></div>
+                    </div>
+                </td>
+                <td class="col-md-1" style="text-align: center">
+                    <div>
+                        <p>未发布</p>
+                        <div>
+                            <p></p>
+                        </div>
+                    </div>
+                </td>
+                <td class="col-md-1" style="text-align: center">
+                    <div>
+                        <p>追加评论</p>
+                        <p>再次购买</p>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--<div style="padding-top: 10px;">
+        <table>
+            <tbody style="background-color: #f5f5f5;height: 36px;">
+            <tr>
+                <th class="col-md-4"><label>2018-01-09</label><span>订单号:111222333444555</span></th>
+                <th class="col-md-2"><a>我是一个小小鱼</a></th>
+                <th class="col-md-2"><a>和我联系</a></th>
+                <th class="col-md-2"><p>删除</p></th>
+            </tr>
+            </tbody>
+
+            <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <div>
+                        <div>image</div>
+                        <div>content</div>
+                    </div>
+                </td>
+                <td class="col-md-1">
+                    <div>
+                        <p>$89</p>
+                        <p>$80</p>
+                    </div>
+                </td>
+                <td class="col-md-1">
+                    <div>
+                        <p>1</p>
+                    </div>
+                </td>
+                <td class="col-md-1">
+                    <div>
+                        <p>违规举报</p>
+                    </div>
+                </td>
+                <td class="col-md-1">
+                    <div>
+                        <div></div>
+                        <p>违规举报</p>
+                        <div></div>
+                    </div>
+                </td>
+                <td class="col-md-1">
+                    <div>
+                        <p>违规举报</p>
+                        <div>
+                            <p></p>
+                        </div>
+                    </div>
+                </td>
+                <td class="col-md-1">
+                    <div>
+                        <p>追加评论</p>
+                        <p>再次购买</p>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>-->
 
 </div>
 </body>
