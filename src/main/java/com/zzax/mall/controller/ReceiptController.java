@@ -23,6 +23,15 @@ public class ReceiptController {
         return "receipt/list";
     }
 
+    @RequestMapping(value = "/detail",method = RequestMethod.GET)
+    public String detail(){
+        return "receipt/detail";
+    }
+
+    @RequestMapping(value = "/detail1",method = RequestMethod.GET)
+    public String detail1(){
+        return "receipt/detail1";
+    }
 
 
 }

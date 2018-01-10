@@ -4,8 +4,13 @@
 <body style="font-size: 12px;">
 <section th:include="layout :: navbar"></section>
 <div id="content">
-    <span>仓单管理>我的仓单</span>
+    <ol class="breadcrumb">
+        <!--<li><a href="#">仓单管理</a></li>-->
+        <li class="active">我的仓单</li>
+    </ol>
+
     <div>
+
         <select>
             <option value="0">-仓单状态-</option>
             <option value="1">未发布</option>
@@ -47,7 +52,7 @@
             <td>郑州杞信仓库</td>
             <td>2018-02-10</td>
             <td>未发布</td>
-            <td><a href="#" th:href="@{#}">查看详情</a></td>
+            <td><a href="#" th:href="@{/receipt/detail}">查看详情</a></td>
         </tr>
         <tr>
             <td>2</td>
@@ -57,7 +62,7 @@
             <td>郑州杞信仓库</td>
             <td>2018-02-10</td>
             <td>未发布</td>
-            <td><a href="#" th:href="@{#}">查看详情</a></td>
+            <td><a href="#" th:href="@{/receipt/detail1}">查看详情</a></td>
         </tr>
         <tr>
             <td>3</td>
