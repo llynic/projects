@@ -16,13 +16,14 @@
     <link rel="stylesheet" href="/css/home.css" th:href="@{/css/home.css}"/>
     <script th:src="@{/js/jquery/jquery-3.0.0.min.js}"></script>
     <script th:src="@{/js/jquery/jquery-ui.min.js}"></script>
+    <script th:src="@{/js/bootstrap/bootstrap.min.js}"></script>
 </head>
-<body class="layout-fixed">
+<body style="font-size: 12px;">
 <div th:fragment="navbar" class="wrapper" role="navigation">
     <div th:replace="fragments/header :: header">Header</div>
     <div th:replace="fragments/left :: left">Left</div>
     <div layout:fragment="content" id="content"></div>
-    <div th:replace="fragments/footer :: footer">Footer</div>
+    <div style="margin-top: 10px" th:replace="fragments/footer :: footer">Footer</div>
 </div>
 </body>
 </html>

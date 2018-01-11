@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="layout :: htmlhead"></head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
 <style>
     div dt label{
         padding-top: 10px;
     }
 </style>
-<body style="font-size: 12px;">
-<section th:include="layout :: navbar"></section>
-<div id="content">
+<body>
+<section layout:fragment="content">
+<div>
     <ol class="breadcrumb">
         <li style="font-size: 14px;"><a href="#" th:href="@{/receipt/list}">我的仓单</a></li>
         <li style="font-size: 14px;" class="active">仓单详情</li>
@@ -21,54 +21,54 @@
             <dl class="dl-horizontal">
                 <div style="width: 400px;position:relative;">
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="code">仓单号:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="code">仓单号:</label></dt>
                         <dd><input class="form-control" id="code" type="text" value="QSWR112011552414" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="price">仓单价格(元):</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="price">仓单价格(元):</label></dt>
                         <dd><input class="form-control" id="price" type="text" value="¥ 121,211.00" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="status">仓单状态:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="status">仓单状态:</label></dt>
                         <dd><input class="form-control" id="status" type="text" value="未发布" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="depotName">所在仓库名称:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="depotName">所在仓库名称:</label></dt>
                         <dd><input class="form-control" id="depotName" type="text" value="安信郑州中心仓库" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="cellName">仓位名称:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="cellName">仓位名称:</label></dt>
                         <dd><input class="form-control" id="cellName" type="text" value="预留仓位" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="baoxian">保险险种:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="baoxian">保险险种:</label></dt>
                         <dd><input class="form-control" id="baoxian" type="text" value="中国人寿保险公司" disabled="disabled"/></dd>
                     </div>
                 </div>
                 <!--右侧信息展示-->
                 <div style=" margin-bottom: 10px;width: 400px;position:absolute;left:38%;bottom:50%">
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="holder">仓单持有人:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="holder">仓单持有人:</label></dt>
                         <dd><input class="form-control" id="holder" type="text" value="张三" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="valid">仓单有效期:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="valid">仓单有效期:</label></dt>
                         <dd><input class="form-control" id="valid" type="text" value="2018-05-10" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="type">仓单类型:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="type">仓单类型:</label></dt>
                         <dd><input class="form-control" id="type" type="text" value="未发布" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="depotAddress">仓单仓库地址:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="depotAddress">仓单仓库地址:</label></dt>
                         <dd><input class="form-control" id="depotAddress" type="text" value="郑州中心仓库地址" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="cellNo">仓位编号:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="cellNo">仓位编号:</label></dt>
                         <dd><input class="form-control" id="cellNo" type="text" value="C0002121" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="baoxianNo">保险单号:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="baoxianNo">保险单号:</label></dt>
                         <dd><input class="form-control" id="baoxianNo" type="text" value="BX1561561651651651" disabled="disabled"/></dd>
                     </div>
                 </div>
@@ -84,54 +84,54 @@
             <dl class="dl-horizontal">
                 <div style="width: 400px;position:relative;">
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="goodsName">货物名称:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="goodsName">货物名称:</label></dt>
                         <dd><input class="form-control" id="goodsName" type="text" value="路虎SUV新款汽车" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="goodsType">货物类型:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="goodsType">货物类型:</label></dt>
                         <dd><input class="form-control" id="goodsType" type="text" value="汽车" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="goodsCode">货物编号:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="goodsCode">货物编号:</label></dt>
                         <dd><input class="form-control" id="goodsCode" type="text" value="HW000000011221" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="goodsBrand">货物品牌:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="goodsBrand">货物品牌:</label></dt>
                         <dd><input class="form-control" id="goodsBrand" type="text" value="路虎" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="goodsPack">货物包装:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="goodsPack">货物包装:</label></dt>
                         <dd><input class="form-control" id="goodsPack" type="text" value="木箱" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="goodsModel">货物型号:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="goodsModel">货物型号:</label></dt>
                         <dd><input class="form-control" id="goodsModel" type="text" value="型号" disabled="disabled"/></dd>
                     </div>
                 </div>
                 <!--右侧信息展示-->
                 <div style=" margin-bottom: 10px;width: 400px;position:absolute;left:38%;bottom:15px">
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="producer">生产厂家:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="producer">生产厂家:</label></dt>
                         <dd><input class="form-control" id="producer" type="text" value="路虎汽车公司" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="productionArea">产地:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="productionArea">产地:</label></dt>
                         <dd><input class="form-control" id="productionArea" type="text" value="中国河南" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="productionDate">生产日期:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="productionDate">生产日期:</label></dt>
                         <dd><input class="form-control" id="productionDate" type="text" value="2018-01-01" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="goodsQuantity">货物数量:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="goodsQuantity">货物数量:</label></dt>
                         <dd><input class="form-control" id="goodsQuantity" type="text" value="1" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="goodsUnit">货物单位:</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="goodsUnit">货物单位:</label></dt>
                         <dd><input class="form-control" id="goodsUnit" type="text" value="辆" disabled="disabled"/></dd>
                     </div>
                     <div style=" margin-bottom: 10px;">
-                        <dt><label style="margin: 0px" for="goodsWeight">货物重量(吨):</label></dt>
+                        <dt><label style="margin:10px 0 0 0 " for="goodsWeight">货物重量(吨):</label></dt>
                         <dd><input class="form-control" id="goodsWeight" type="text" value="1.2" disabled="disabled"/></dd>
                     </div>
                 </div>
@@ -139,5 +139,6 @@
         </div>
     </div>
 </div>
+</section>
 </body>
 </html>

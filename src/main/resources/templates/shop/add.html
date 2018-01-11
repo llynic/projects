@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<style>
+
+</style>
+<body>
+<section layout:fragment="content">
+    <div>
+        <div>
+            <!--标题-->
+            <ol class="breadcrumb">
+                <li class="active">添加商品</li>
+            </ol>
+        </div>
+        <!--内容-->
+        <div>
+            <div style="display: block">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p style="margin: 0;">商品基本信息</p>
+                    </div>
+
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <!--左边的信息列表-->
+                            <div style="width: 50%;margin-left: -25px;position:relative;">
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="code">仓单编号:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="code" type="text"
+                                               value="QWRE61561516516515"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsName">商品名称:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsName" type="text"
+                                               value="路虎SUV新款汽车" disabled="disabled"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsType">货物类型:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsType" type="text"
+                                               value="汽车" disabled="disabled"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsCode">货物编号:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsCode" type="text"
+                                               value="HW000000011221" disabled="disabled"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsBrand">货物品牌:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsBrand" type="text"
+                                               value="路虎" disabled="disabled"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsPack">货物包装:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsPack" type="text"
+                                               value="木箱" disabled="disabled"/></dd>
+                                </div>
+                                <div>
+                                    <dt><label style="margin:10px 0 0 0" for="goodsModel">货物型号:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsModel" type="text"
+                                               value="型号" disabled="disabled"/></dd>
+                                </div>
+                            </div>
+                            <!--右侧信息展示-->
+                            <div style="margin-top: -23%;width: 50%;float: right;left:46%;bottom:15px">
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="producer">生产厂家:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="producer" type="text"
+                                               value="路虎汽车公司" disabled="disabled"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="productionArea">产地:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="productionArea" type="text"
+                                               value="中国河南" disabled="disabled"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="productionDate">生产日期:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="productionDate" type="text"
+                                               value="2018-01-01" disabled="disabled"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsQuantity">货物数量:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsQuantity" type="text"
+                                               value="1" disabled="disabled"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsUnit">货物单位:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsUnit" type="text"
+                                               value="辆" disabled="disabled"/></dd>
+                                </div>
+                                <div>
+                                    <dt><label style="margin:10px 0 0 0" for="goodsWeight">货物重量(吨):</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsWeight" type="text"
+                                               value="1.2" disabled="disabled"/></dd>
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p style="margin: 0;">车身信息</p>
+                    </div>
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <!--左边的信息列表-->
+                            <div style="width: 50%;margin-left: -25px;position:relative;">
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="code">车身总长度:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="code" type="text"
+                                               value="5,000"/></dd>
+                                </div>
+                            </div>
+                            <!--右侧信息展示-->
+                            <div style="margin-top: -44px;width: 50%;float: right;left:46%;bottom:15px">
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="zhouju">轴距:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="zhouju" type="text"
+                                               value="2,922" disabled="disabled"/>
+                                    </dd>
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p style="margin: 0;">车高与车宽</p>
+                    </div>
+
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <!--左边的信息列表-->
+                            <div style="width: 50%;margin-left: -25px;position:relative;">
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="code">高度:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="code" type="text"
+                                               value="1,861"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsType">前轮轮距(mm):</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsType" type="text"
+                                               value="1,692" disabled="disabled"/></dd>
+                                </div>
+
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsPack">后轮轮距(mm):</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsPack" type="text"
+                                               value="1,685" disabled="disabled"/></dd>
+                                </div>
+                            </div>
+                            <!--右侧信息展示-->
+                            <div style="margin-top: -132px;width: 50%;float: right;left:46%;bottom:15px">
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsName">宽度 - 外后视镜折叠(mm)</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsName" type="text"
+                                               value="2,073" disabled="disabled"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsCode">宽度 - 外后视镜展开(mm):</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsCode" type="text"
+                                               value="2,220" disabled="disabled"/></dd>
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p style="margin: 0;">发动机</p>
+                    </div>
+
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <!--左边的信息列表-->
+                            <div style="width: 50%;margin-left: -25px;position:relative;">
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="code">型号:</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="code" type="text"
+                                               value="3.0L V6 机械增压汽油发动机 (340PS)"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="goodsName">最大功率(PS):</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="goodsName" type="text"
+                                               value="340" disabled="disabled"/></dd>
+                                </div>
+                            </div>
+                            <!--右侧信息展示-->
+                            <div style="margin-top: -88px;width: 50%;float: right;left:46%;bottom:15px">
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="producer">排量(cc):</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="producer" type="text"
+                                               value="2,995" disabled="disabled"/></dd>
+                                </div>
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="productionArea">最大扭矩(Nm):</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="productionArea" type="text"
+                                               value="450" disabled="disabled"/></dd>
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p style="margin: 0;">性能</p>
+                    </div>
+
+                    <div class="panel-body">
+                        <dl class="dl-horizontal">
+                            <!--左边的信息列表-->
+                            <div style="width: 50%;margin-left: -25px;position:relative;">
+                                <div style=" margin-bottom: 10px;">
+                                    <dt><label style="margin:10px 0 0 0" for="code">最高时速(公里/小时):</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="code" type="text"
+                                               value="209"/></dd>
+                                </div>
+                            </div>
+                            <!--右侧信息展示-->
+                            <div style="margin-top: -44px;width: 50%;float: right;left:46%;bottom:15px">
+                                <div style=" margin-bottom: 10px;">
+                                    <dt style="width: 173px;padding-right: 10px"><label style="margin:10px 0 0 0" for="producer">0-100公里/小时加速时间(秒):</label></dt>
+                                    <dd><input style="width: 70% ;" class="form-control" id="producer" type="text"
+                                               value="7.4" disabled="disabled"/></dd>
+                                </div>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:include="layout :: htmlhead"></head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
 <style>
     .caption {
         background-color: #f5f5f5;
@@ -16,259 +16,271 @@
     }
 </style>
 <body style="font-size: 12px;">
-<section th:include="layout :: navbar"></section>
-<div id="content" >
-    <ol class="breadcrumb">
-        <li class="active">我的订单</li>
-    </ol>
+<section layout:fragment="content">
     <div>
-        <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">所有商品</a>
-        <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">未上架</a>
-        <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">已上架</a>
-        <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">交易中</a>
-    </div>
-    <div>
-        <input class="form-control" style="width: 300px;display: inline-block" type="text" value="" placeholder="输入商品标题或者订单号进行搜索"/>
-        <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">订单搜索</a>
-    </div>
-    <!--标题-->
-    <table class="caption">
-        <tr>
-            <th class="col-lg-4" style="text-align: center">商品</th>
-            <th class="col-lg-1" style="text-align: center">单价</th>
-            <th class="col-lg-1" style="text-align: center">数量</th>
-            <th class="col-lg-1" style="text-align: center">商品操作</th>
-            <th class="col-lg-1" style="text-align: center">实付款</th>
-            <th class="col-lg-1" style="text-align: center">商品状态</th>
-            <th class="col-lg-1" style="text-align: center">交易操作</th>
-        </tr>
-    </table>
-    <!--分割线-->
-    <div style="height: 10px;background-color: #ffffff"></div>
-    <!--商品列表-->
-    <div class="panel panel-default">
-        <div class="panel-heading" style="padding: 0px 15px;">
-            <table>
-                <tbody style="background-color: #f5f5f5;">
-                <tr>
-                    <th class="col-lg-4" style="height: 36px;">
-                        <label style="margin-bottom: 0px;margin-right: 10px">2018-01-09 </label>
-                        <span> 订单号:111222333444555</span>
-                    </th>
-                    <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
-                    <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
-                    <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
-                </tr>
-                </tbody>
-            </table>
+        <ol class="breadcrumb">
+            <li class="active">我的订单</li>
+        </ol>
+        <div>
+            <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">所有商品</a>
+            <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">未上架</a>
+            <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">已上架</a>
+            <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">交易中</a>
         </div>
-        <div class="panel-body" style="padding: 0px;">
-            <table class="table-hover">
-                <tbody>
-                <tr>
-                    <td class="col-lg-4">
-                        <div>
-                            <div style="width: 80px;height: 80px;position:relative;margin: 15px 5px;">
-                                <img src="/images/car/luhu2.png" alt="路虎" th:src="@{/images/car/luhu2.png}"/>
-                            </div>
-                            <div style="width: 300px;height: 50px;position:absolute;left:110px;bottom:45px">
-                                <span>2017年款揽胜 路虎旗下SUV巅峰之作</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p style="text-decoration: line-through;">￥820,000.00</p>
-                            <p>￥810,000.00</p>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>1</p>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>违规举报</p>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <div></div>
-                            <p>￥810,000.00</p>
-                            <div></div>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>已上架</p>
+        <div>
+            <input class="form-control" style="width: 300px;display: inline-block" type="text" value=""
+                   placeholder="输入商品标题或者订单号进行搜索"/>
+            <a class="btn btn-default" style="text-decoration:none;" href="#" role="button" th:href="@{#}">订单搜索</a>
+        </div>
+
+        <div style="padding-top: 10px">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="height: 40px">
+                    <table>
+                        <tbody style="background-color: #f5f5f5;">
+                        <tr>
+                            <th class="col-lg-4" style="text-align: center">商品</th>
+                            <th class="col-lg-1" style="text-align: center">单价</th>
+                            <th class="col-lg-1" style="text-align: center">数量</th>
+                            <th class="col-lg-1" style="text-align: center">商品操作</th>
+                            <th class="col-lg-1" style="text-align: center">实付款</th>
+                            <th class="col-lg-1" style="text-align: center">商品状态</th>
+                            <th class="col-lg-1" style="text-align: center">交易操作</th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!--分割线-->
+        <div style="height: 6px;background-color: #ffffff"></div>
+        <!--商品列表-->
+        <div class="panel panel-default">
+            <div class="panel-heading" style="padding: 0px 15px;">
+                <table>
+                    <tbody style="background-color: #f5f5f5;">
+                    <tr>
+                        <th class="col-lg-4" style="height: 36px;">
+                            <label style="margin-bottom: 0px;margin-right: 10px">2018-01-09 </label>
+                            <span> 订单号:111222333444555</span>
+                        </th>
+                        <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
+                        <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
+                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-body" style="padding: 0px;">
+                <table class="table-hover">
+                    <tbody>
+                    <tr>
+                        <td class="col-lg-4">
                             <div>
-                                <a href="#" th:href="@{#}">
-                                    <p>商品详情</p>
-                                </a>
+                                <div style="width: 80px;height: 80px;position:relative;margin: 15px 5px;">
+                                    <img src="/images/car/luhu2.png" alt="路虎" th:src="@{/images/car/luhu2.png}"/>
+                                </div>
+                                <div style="width: 300px;height: 50px;position:absolute;left:110px;bottom:45px">
+                                    <span>2017年款揽胜 路虎旗下SUV巅峰之作</span>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>追加评论</p>
-                            <p>再次购买</p>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" style="padding: 0px 15px;">
-            <table>
-                <tbody style="background-color: #f5f5f5;">
-                <tr>
-                    <th class="col-lg-4" style="height: 36px;">
-                        <label style="margin-bottom: 0px;margin-right: 10px">2018-01-09 </label>
-                        <span> 订单号:111222333444555</span>
-                    </th>
-                    <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
-                    <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
-                    <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="panel-body" style="padding: 0px;">
-            <table class="table-hover">
-                <tbody>
-                <tr>
-                    <td class="col-lg-4">
-                        <div>
-                            <div style="width: 80px;height: 80px;position:relative;margin: 15px 5px;">
-                                <img src="/images/car/luhu1.png" alt="路虎" th:src="@{/images/car/luhu1.png}"/>
-                            </div>
-                            <div style="width: 300px;height: 50px;position:absolute;left:110px;bottom:45px">
-                                <span>路虎新款揽胜 旗舰路虎揽胜</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p style="text-decoration: line-through;">￥820,000.00</p>
-                            <p>￥810,000.00</p>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>1</p>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>违规举报</p>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <div></div>
-                            <p>￥810,000.00</p>
-                            <div></div>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>未上架</p>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <a href="#" th:href="@{#}">
-                                    <p>商品详情</p>
-                                </a>
+                                <p style="text-decoration: line-through;">￥820,000.00</p>
+                                <p>￥810,000.00</p>
                             </div>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>追加评论</p>
-                            <p>再次购买</p>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" style="padding: 0px 15px;">
-            <table>
-                <tbody style="background-color: #f5f5f5;">
-                <tr>
-                    <th class="col-lg-4" style="height: 36px;">
-                        <label style="margin-bottom: 0px;margin-right: 10px">2018-01-09 </label>
-                        <span> 订单号:111222333444555</span>
-                    </th>
-                    <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
-                    <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
-                    <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="panel-body" style="padding: 0px;">
-            <table class="table-hover">
-                <tbody>
-                <tr>
-                    <td class="col-lg-4">
-                        <div>
-                            <div style="width: 80px;height: 80px;position:relative;margin: 15px 5px;">
-                                <img src="/images/car/luhu3.png" alt="路虎" th:src="@{/images/car/luhu3.png}"/>
-                            </div>
-                            <div style="width: 300px;height: 50px;position:absolute;left:110px;bottom:45px">
-                                <span>新款揽胜运动版 十足动能魅力的路虎揽胜</span>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p style="text-decoration: line-through;">￥820,000.00</p>
-                            <p>￥810,000.00</p>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>1</p>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>违规举报</p>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <div></div>
-                            <p>￥810,000.00  </p>
-                            <div></div>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>交易中</p>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <a href="#" th:href="@{#}">
-                                    <p>商品详情</p>
-                                </a>
+                                <p>1</p>
                             </div>
-                        </div>
-                    </td>
-                    <td class="col-lg-1" style="text-align: center">
-                        <div>
-                            <p>追加评论</p>
-                            <p>再次购买</p>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>违规举报</p>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <div></div>
+                                <p>￥810,000.00</p>
+                                <div></div>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>已上架</p>
+                                <div>
+                                    <a href="#" th:href="@{#}">
+                                        <p>商品详情</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>追加评论</p>
+                                <p>再次购买</p>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" style="padding: 0px 15px;">
+                <table>
+                    <tbody style="background-color: #f5f5f5;">
+                    <tr>
+                        <th class="col-lg-4" style="height: 36px;">
+                            <label style="margin-bottom: 0px;margin-right: 10px">2018-01-09 </label>
+                            <span> 订单号:111222333444555</span>
+                        </th>
+                        <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
+                        <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
+                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-body" style="padding: 0px;">
+                <table class="table-hover">
+                    <tbody>
+                    <tr>
+                        <td class="col-lg-4">
+                            <div>
+                                <div style="width: 80px;height: 80px;position:relative;margin: 15px 5px;">
+                                    <img src="/images/car/luhu1.png" alt="路虎" th:src="@{/images/car/luhu1.png}"/>
+                                </div>
+                                <div style="width: 300px;height: 50px;position:absolute;left:110px;bottom:45px">
+                                    <span>路虎新款揽胜 旗舰路虎揽胜</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p style="text-decoration: line-through;">￥820,000.00</p>
+                                <p>￥810,000.00</p>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>1</p>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>违规举报</p>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <div></div>
+                                <p>￥810,000.00</p>
+                                <div></div>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>未上架</p>
+                                <div>
+                                    <a href="#" th:href="@{#}">
+                                        <p>商品详情</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>追加评论</p>
+                                <p>再次购买</p>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading" style="padding: 0px 15px;">
+                <table>
+                    <tbody style="background-color: #f5f5f5;">
+                    <tr>
+                        <th class="col-lg-4" style="height: 36px;">
+                            <label style="margin-bottom: 0px;margin-right: 10px">2018-01-09 </label>
+                            <span> 订单号:111222333444555</span>
+                        </th>
+                        <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
+                        <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
+                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-body" style="padding: 0px;">
+                <table class="table-hover">
+                    <tbody>
+                    <tr>
+                        <td class="col-lg-4">
+                            <div>
+                                <div style="width: 80px;height: 80px;position:relative;margin: 15px 5px;">
+                                    <img src="/images/car/luhu3.png" alt="路虎" th:src="@{/images/car/luhu3.png}"/>
+                                </div>
+                                <div style="width: 300px;height: 50px;position:absolute;left:110px;bottom:45px">
+                                    <span>新款揽胜运动版 十足动能魅力的路虎揽胜</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p style="text-decoration: line-through;">￥820,000.00</p>
+                                <p>￥810,000.00</p>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>1</p>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>违规举报</p>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <div></div>
+                                <p>￥810,000.00 </p>
+                                <div></div>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>交易中</p>
+                                <div>
+                                    <a href="#" th:href="@{#}">
+                                        <p>商品详情</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-lg-1" style="text-align: center">
+                            <div>
+                                <p>追加评论</p>
+                                <p>再次购买</p>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
+</section>
 </body>
 
 </html>
