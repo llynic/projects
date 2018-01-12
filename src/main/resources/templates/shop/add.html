@@ -13,7 +13,13 @@
                 <li class="active">添加商品</li>
             </ol>
         </div>
-        <!--内容-->
+        <!--页面内容-->
+        <div>
+            <label>请选择仓单:</label>
+            <input id="inputReceiptNo" style="width: 200px;display: inline-block" type="text" class="form-control"
+                   value=""/>
+        </div>
+        <!--信息内容-->
         <div>
             <div style="display: block">
                 <div class="panel panel-default">
@@ -26,9 +32,9 @@
                             <!--左边的信息列表-->
                             <div style="width: 50%;margin-left: -25px;position:relative;">
                                 <div style=" margin-bottom: 10px;">
-                                    <dt><label style="margin:10px 0 0 0" for="code">仓单编号:</label></dt>
+                                    <dt><label style="margin:10px 0 0 0" for="code">商品价格:</label></dt>
                                     <dd><input style="width: 70% ;" class="form-control" id="code" type="text"
-                                               value="QWRE61561516516515"/></dd>
+                                               value="125,000,12"/></dd>
                                 </div>
                                 <div style=" margin-bottom: 10px;">
                                     <dt><label style="margin:10px 0 0 0" for="goodsName">商品名称:</label></dt>
@@ -62,7 +68,7 @@
                                 </div>
                             </div>
                             <!--右侧信息展示-->
-                            <div style="margin-top: -23%;width: 50%;float: right;left:46%;bottom:15px">
+                            <div style="margin-top: -298px;width: 50%;float: right;left:46%;bottom:15px">
                                 <div style=" margin-bottom: 10px;">
                                     <dt><label style="margin:10px 0 0 0" for="producer">生产厂家:</label></dt>
                                     <dd><input style="width: 70% ;" class="form-control" id="producer" type="text"
@@ -227,7 +233,9 @@
                             <!--右侧信息展示-->
                             <div style="margin-top: -44px;width: 50%;float: right;left:46%;bottom:15px">
                                 <div style=" margin-bottom: 10px;">
-                                    <dt style="width: 173px;padding-right: 10px"><label style="margin:10px 0 0 0" for="producer">0-100公里/小时加速时间(秒):</label></dt>
+                                    <dt style="width: 173px;padding-right: 10px"><label style="margin:10px 0 0 0"
+                                                                                        for="producer">0-100公里/小时加速时间(秒):</label>
+                                    </dt>
                                     <dd><input style="width: 70% ;" class="form-control" id="producer" type="text"
                                                value="7.4" disabled="disabled"/></dd>
                                 </div>
@@ -238,6 +246,132 @@
             </div>
         </div>
     </div>
+    <script>
+        $("#inputReceiptNo").focus(function () {
+            $('#myModal').modal('show');
+        });
+
+        /*$("#inputReceiptNo").blur(function () {
+            console.log(2222);
+        });*/
+    </script>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">请选择仓单号</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <table id="receiptList" class="table table-bordered table-hover" data-toggle="table">
+                            <thead>
+                            <tr>
+                                <th width="30px"></th>
+                                <th data-field="index" data-formatter="indexFormatter">序号</th>
+                                <th>仓单号</th>
+                                <th>品牌</th>
+                                <th>价格</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><input type="radio" name="optionsRadios" value="option"/></td>
+                                <td>1</td>
+                                <td>QWER123145</td>
+                                <td>路虎</td>
+                                <td>123,456,00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="optionsRadios" value="option"/></td>
+                                <td>2</td>
+                                <td>QWER123145</td>
+                                <td>路虎</td>
+                                <td>123,456,00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="optionsRadios" value="option"/></td>
+                                <td>3</td>
+                                <td>QWER123145</td>
+                                <td>路虎</td>
+                                <td>123,456,00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="optionsRadios" value="option"/></td>
+                                <td>4</td>
+                                <td>QWER123145</td>
+                                <td>路虎</td>
+                                <td>123,456,00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="optionsRadios" value="option"/></td>
+                                <td>5</td>
+                                <td>QWER123145</td>
+                                <td>路虎</td>
+                                <td>123,456,00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="optionsRadios" value="option"/></td>
+                                <td>6</td>
+                                <td>QWER123145</td>
+                                <td>路虎</td>
+                                <td>123,456,00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="optionsRadios" value="option"/></td>
+                                <td>7</td>
+                                <td>QWER123145</td>
+                                <td>路虎</td>
+                                <td>123,456,00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="optionsRadios" value="option"/></td>
+                                <td>8</td>
+                                <td>QWER123145</td>
+                                <td>路虎</td>
+                                <td>123,456,00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="optionsRadios" value="option"/></td>
+                                <td>9</td>
+                                <td>QWER123145</td>
+                                <td>路虎</td>
+                                <td>123,456,00</td>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="optionsRadios" value="option"/></td>
+                                <td>10</td>
+                                <td>QWER123145</td>
+                                <td>路虎</td>
+                                <td>123,456,00</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="modalSave">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function indexFormatter(value, row, index) {
+            return index+1;
+        }
+        $("#modalSave").click(function(){
+
+        });
+
+        $("table > tbody > tr").click(function () {
+
+            /*$(this).find("input").attr("checked","checked");*/
+
+        });
+    </script>
 </section>
 </body>
 </html>

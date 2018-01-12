@@ -1,7 +1,11 @@
+
 .header{
-    position: relative;
     background: url('/images/head-bg.png');
     height: 42px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    position: fixed;
 }
 .title{
     padding-top: 11px;
@@ -9,7 +13,7 @@
 }
 .footer{
     font-size: 12px;
-    position: relative;
+    position: absolute;
     bottom: 10px;
     padding-left: 45%;
 }
