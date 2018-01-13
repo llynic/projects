@@ -59,7 +59,7 @@
                         </th>
                         <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
                         <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
-                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
+                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;"></p></th>
                     </tr>
                     </tbody>
                 </table>
@@ -91,7 +91,7 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>违规举报</p>
+                                <a href="#" th:href="@{#}"><p>下架</p></a>
                             </div>
                         </td>
                         <td class="col-lg-1" style="text-align: center">
@@ -105,7 +105,7 @@
                             <div>
                                 <p>已上架</p>
                                 <div>
-                                    <a href="#" th:href="@{#}">
+                                    <a href="#" th:href="@{/shop/detail}">
                                         <p>商品详情</p>
                                     </a>
                                 </div>
@@ -113,8 +113,8 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>追加评论</p>
-                                <p>再次购买</p>
+                                <p></p>
+                                <p></p>
                             </div>
                         </td>
                     </tr>
@@ -133,7 +133,7 @@
                         </th>
                         <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
                         <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
-                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
+                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;"></p></th>
                     </tr>
                     </tbody>
                 </table>
@@ -165,7 +165,9 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>违规举报</p>
+
+                                <a href="#" th:href="@{#}"><p>上架</p></a>
+                                <a href="#" th:href="@{#}"><p>删除</p></a>
                             </div>
                         </td>
                         <td class="col-lg-1" style="text-align: center">
@@ -179,7 +181,7 @@
                             <div>
                                 <p>未上架</p>
                                 <div>
-                                    <a href="#" th:href="@{#}">
+                                    <a href="#" th:href="@{/shop/detail}">
                                         <p>商品详情</p>
                                     </a>
                                 </div>
@@ -187,8 +189,8 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>追加评论</p>
-                                <p>再次购买</p>
+                                <p></p>
+                                <p></p>
                             </div>
                         </td>
                     </tr>
@@ -208,9 +210,7 @@
                         <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
                         <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
                         <th class="col-lg-2" style="height: 36px;">
-                            <p style="text-align: right;margin: 0px;">
-                                <span class="glyphicon glyphicon-trash" aria-hidden="true">删除</span>
-                            </p>
+                            <div style="text-align: right;margin: 0px;"></div>
                         </th>
                     </tr>
                     </tbody>
@@ -243,7 +243,7 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>违规举报</p>
+                                <p></p>
                             </div>
                         </td>
                         <td class="col-lg-1" style="text-align: center">
@@ -257,7 +257,7 @@
                             <div>
                                 <p>交易中</p>
                                 <div>
-                                    <a href="#" th:href="@{#}">
+                                    <a href="#" th:href="@{/shop/detail}">
                                         <p>商品详情</p>
                                     </a>
                                 </div>
@@ -265,8 +265,8 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>追加评论</p>
-                                <p>再次购买</p>
+                                <p></p>
+                                <p></p>
                             </div>
                         </td>
                     </tr>
@@ -285,7 +285,7 @@
                         </th>
                         <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
                         <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
-                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
+                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;"></p></th>
                     </tr>
                     </tbody>
                 </table>
@@ -317,7 +317,8 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>违规举报</p>
+                                <a><p>上架</p></a>
+                                <a><p>删除</p></a>
                             </div>
                         </td>
                         <td class="col-lg-1" style="text-align: center">
@@ -331,7 +332,7 @@
                             <div>
                                 <p>未发布</p>
                                 <div>
-                                    <a href="#" th:href="@{#}">
+                                    <a href="#" th:href="@{/shop/detail}">
                                         <p>商品详情</p>
                                     </a>
                                 </div>
@@ -339,8 +340,8 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>追加评论</p>
-                                <p>再次购买</p>
+                                <p></p>
+                                <p></p>
                             </div>
                         </td>
                     </tr>
@@ -359,7 +360,7 @@
                         </th>
                         <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
                         <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
-                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
+                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;"></p></th>
                     </tr>
                     </tbody>
                 </table>
@@ -391,7 +392,7 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>违规举报</p>
+                                <a><p>下架</p></a>
                             </div>
                         </td>
                         <td class="col-lg-1" style="text-align: center">
@@ -405,7 +406,7 @@
                             <div>
                                 <p>已上架</p>
                                 <div>
-                                    <a href="#" th:href="@{#}">
+                                    <a href="#" th:href="@{/shop/detail}">
                                         <p>商品详情</p>
                                     </a>
                                 </div>
@@ -413,8 +414,8 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>追加评论</p>
-                                <p>再次购买</p>
+                                <p></p>
+                                <p></p>
                             </div>
                         </td>
                     </tr>
@@ -433,7 +434,7 @@
                         </th>
                         <th class="col-lg-2" style="height: 36px;"><a>我是一个小小鱼</a></th>
                         <th class="col-lg-2" style="height: 36px;"><a>和我联系</a></th>
-                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;">删除</p></th>
+                        <th class="col-lg-2" style="height: 36px;"><p style="text-align: right;margin: 0px;"></p></th>
                     </tr>
                     </tbody>
                 </table>
@@ -465,7 +466,8 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>违规举报</p>
+                                <a><p>下架</p></a>
+                                <a><p>删除</p></a>
                             </div>
                         </td>
                         <td class="col-lg-1" style="text-align: center">
@@ -479,7 +481,7 @@
                             <div>
                                 <p>未上架</p>
                                 <div>
-                                    <a href="#" th:href="@{#}">
+                                    <a href="#" th:href="@{/shop/detail}">
                                         <p>商品详情</p>
                                     </a>
                                 </div>
@@ -487,8 +489,8 @@
                         </td>
                         <td class="col-lg-1" style="text-align: center">
                             <div>
-                                <p>追加评论</p>
-                                <p>再次购买</p>
+                                <p></p>
+                                <p></p>
                             </div>
                         </td>
                     </tr>

@@ -7,14 +7,9 @@
         <div>
             <!--标题-->
             <ol class="breadcrumb">
-                <li class="active">添加商品</li>
+                <li style="font-size: 14px;"><a href="#" th:href="@{/shop/list}">我的商品</a></li>
+                <li style="font-size: 14px;" class="active">商品详情</li>
             </ol>
-        </div>
-        <!--页面内容-->
-        <div style="margin: 0 0 10px 0;">
-            <label>请选择仓单:</label>
-            <input id="inputReceiptNo" style="width: 200px;display: inline-block" type="text" class="form-control"
-                   value=""/>
         </div>
         <!--信息内容-->
         <div>
@@ -36,10 +31,16 @@
                                         <!--左边的信息列表-->
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
-                                                <dt><label style="margin:10px 0 0 0" for="code">商品价格:</label></dt>
+                                                <dt><label style="margin:10px 0 0 0" for="code">商品编号:</label></dt>
                                                 <dd><input style="width: 70% ;" class="form-control" id="code"
                                                            type="text"
-                                                           value="125,000,12"/></dd>
+                                                           value="SP001002003" disabled="disabled"/></dd>
+                                            </div>
+                                            <div style=" margin-bottom: 10px;">
+                                                <dt><label style="margin:10px 0 0 0" for="code">商品价格:</label></dt>
+                                                <dd><input style="width: 70% ;" class="form-control" id="price"
+                                                           type="text"
+                                                           value="125,000,12" disabled="disabled"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsName">商品名称:</label></dt>
@@ -70,12 +71,6 @@
                                                 <dd><input style="width: 70% ;" class="form-control" id="goodsPack"
                                                            type="text"
                                                            value="木箱" disabled="disabled"/></dd>
-                                            </div>
-                                            <div>
-                                                <dt><label style="margin:10px 0 0 0" for="goodsModel">货物型号:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsModel"
-                                                           type="text"
-                                                           value="型号" disabled="disabled"/></dd>
                                             </div>
                                         </div>
                                         <!--右侧信息展示-->
@@ -113,12 +108,18 @@
                                                            type="text"
                                                            value="辆" disabled="disabled"/></dd>
                                             </div>
-                                            <div>
+                                            <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsWeight">货物重量(吨):</label>
                                                 </dt>
                                                 <dd><input style="width: 70% ;" class="form-control" id="goodsWeight"
                                                            type="text"
                                                            value="1.2" disabled="disabled"/></dd>
+                                            </div>
+                                            <div>
+                                                <dt><label style="margin:10px 0 0 0" for="goodsModel">货物型号:</label></dt>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsModel"
+                                                           type="text"
+                                                           value="型号" disabled="disabled"/></dd>
                                             </div>
                                         </div>
                                     </dl>
@@ -315,34 +316,25 @@
                             </div>
                         </div>
                     </div>
-                    <!--性能-->
+                    <!--图片展示-->
                     <div>
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingSix">
-                                <a style="display: inline-block" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix"
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix"
                                    aria-expanded="true" aria-controls="collapseSix">
-                                    <p style="margin: 0;">添加商品图片</p>
+                                    <p style="margin: 0;">图片展示</p>
                                 </a>
-                                <span style="margin-left: 100px;color: #8e8e93">您可以添加5张图片对商品进行描述</span>
                             </div>
                             <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel"
                                  aria-labelledby="headingSix">
                                 <div class="panel-body">
                                     <div>
-                                        <button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                        </button><button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                        </button><button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                        </button><button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                        </button><button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                        </button>
-                                        <button type="button" class="btn btn-default" aria-label="Left Align">
-                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                                        </button>
+                                        <img src="/images/car/luhu1.png" alt="汽车图片" th:src="@{/images/car/luhu1.png}"/>
+                                        <img src="/images/car/luhu2.png" alt="汽车图片" th:src="@{/images/car/luhu2.png}"/>
+                                        <img src="/images/car/luhu3.png" alt="汽车图片" th:src="@{/images/car/luhu3.png}"/>
+                                        <img src="/images/car/luhu4.png" alt="汽车图片" th:src="@{/images/car/luhu4.png}"/>
+                                        <img src="/images/car/luhu5.png" alt="汽车图片" th:src="@{/images/car/luhu5.png}"/>
+                                        <img src="/images/car/luhu6.png" alt="汽车图片" th:src="@{/images/car/luhu6.png}"/>
                                     </div>
                                 </div>
                             </div>

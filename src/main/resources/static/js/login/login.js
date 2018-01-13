@@ -11,7 +11,6 @@ $(function () {
                 dataType:'json',
                 data:$('#loginFrom').serialize(),
                 success:function (data) {
-                    alert(data.message);
                     if (data.success){
                         //成功后该怎么做
                         window.location.href="/home"

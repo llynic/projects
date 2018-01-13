@@ -32,4 +32,9 @@ public class ShopController {
     public String addShop(){
         return "shop/add";
     }
+
+    @RequestMapping(value = "/detail",method = RequestMethod.GET)
+    public String detail(){
+        return "shop/detail";
+    }
 }

@@ -1,14 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>汽车商城-登录页面</title>
-    <link href="css/login/style.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="js/jquery/jquery-3.0.0.min.js"></script>
-    <script type="text/javascript" src="js/login/login.js"></script>
+    <link href="css/login/style.css" th:href="@{/css/login/style.css}" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="js/jquery/jquery-3.0.0.min.js"
+            th:src="@{/js/jquery/jquery-3.0.0.min.js}"></script>
+    <script type="text/javascript" src="js/login/login.js" th:src="@{/js/login/login.js}"></script>
 </head>
-<body>
+<body onkeydown="keyLogin();">
 <div class="top">
     <!--  <ul>
         <li><a href="#none" class="hover">系统主页</a></li>
@@ -19,13 +19,8 @@
         <li><a href="#none">返回首页</a></li>
       </ul>-->
 </div>
-
 <div class="main">
     <div class="denglu">
-        <!--<div class="text" style="font-size:13px;"><strong></strong><br />
-          一、考生登录本系统可查看考试结果，还可查看并保存电子合格证书。<br />
-          二、国网系统外考生可申请邮寄合格证书，付款一周后在“网银交费”页面可查看邮寄状态及快递单号。<br />
-        <font color="red">三、2014年2月24日后不再每日邮寄一次，将改成每两周邮寄一次，整体邮寄工作截止到5月15日。</font></div>-->
         <div style="font-size: 32px;color: white;text-align: center"><strong>汽车商城管理平台</strong></div>
         <div class="dlk">
             <form id="loginFrom">
@@ -35,7 +30,8 @@
                     </tr>
                     <tr>
                         <td width="65" style="font-size:14px;">用户账号</td>
-                        <td colspan="2"><input id="username" type="text" name="username" class="dlinput" autofocus="autofocus"/></td>
+                        <td colspan="2"><input id="username" type="text" name="username" class="dlinput"
+                                               autofocus="autofocus"/></td>
                     </tr>
                     <tr>
                         <td height="16" colspan="3"></td>
@@ -81,6 +77,17 @@
         </div>
     </div>
 </div>
+
 <div class="footer" th:include="fragments/footer :: footer"></div>
+<script type="text/javascript">
+    //回车时，默认是登陆
+    function keyLogin(){
+        if(window.event.keyCode == 13){
+            if (document.getElementById('btn')!=null){
+                document.getElementById('btn').click();
+            }
+        }
+    }
+</script>
 </body>
 </html>
