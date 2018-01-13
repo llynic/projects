@@ -711,11 +711,11 @@ body{
 	padding-right: 5px;
 }
 /** Pagination**/
-#content .pagination{
+/*#content .pagination{
 	text-align: center;
 	margin: 10px -7px 10px 10px;
-	/*[empty]border:;*/
-}
+	!*[empty]border:;*!
+}*/
 
 /** Notification **/
 #content .notif{

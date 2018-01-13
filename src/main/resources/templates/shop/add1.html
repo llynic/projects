@@ -360,8 +360,9 @@
             这里是工具栏
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
+        <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel">
+            <div style="width: 50%" class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -370,92 +371,7 @@
                     </div>
                     <div class="modal-body">
                         <form>
-                            <table id="table"
-                                   data-toggle="table"
-                                   classes="table table-bordered table-hover"
-                            >
-                                <thead>
-                                <tr>
-                                    <th></th>
-                                    <th data-field="id" data-align="center">序号</th>
-                                    <th data-field="receiptNo">仓单号</th>
-                                    <th data-field="brand">品牌</th>
-                                    <th data-field="price">价格</th>
-                                </tr>
-                                </thead>
-                                <!--<tbody>
-                                <tr>
-                                    <td><input type="radio" name="optionsRadios" value="option"/></td>
-                                    <td></td>
-                                    <td>QWER123145</td>
-                                    <td>路虎</td>
-                                    <td>123,456,00</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="optionsRadios" value="option"/></td>
-                                    <td></td>
-                                    <td>QWER123145</td>
-                                    <td>路虎</td>
-                                    <td>123,456,00</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="optionsRadios" value="option"/></td>
-                                    <td></td>
-                                    <td>QWER123145</td>
-                                    <td>路虎</td>
-                                    <td>123,456,00</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="optionsRadios" value="option"/></td>
-                                    <td></td>
-                                    <td>QWER123145</td>
-                                    <td>路虎</td>
-                                    <td>123,456,00</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="optionsRadios" value="option"/></td>
-                                    <td>5</td>
-                                    <td>QWER123145</td>
-                                    <td>路虎</td>
-                                    <td>123,456,00</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="optionsRadios" value="option"/></td>
-                                    <td>6</td>
-                                    <td>QWER123145</td>
-                                    <td>路虎</td>
-                                    <td>123,456,00</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="optionsRadios" value="option"/></td>
-                                    <td>7</td>
-                                    <td>QWER123145</td>
-                                    <td>路虎</td>
-                                    <td>123,456,00</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="optionsRadios" value="option"/></td>
-                                    <td>8</td>
-                                    <td>QWER123145</td>
-                                    <td>路虎</td>
-                                    <td>123,456,00</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="optionsRadios" value="option"/></td>
-                                    <td>9</td>
-                                    <td>QWER123145</td>
-                                    <td>路虎</td>
-                                    <td>123,456,00</td>
-                                </tr>
-                                <tr>
-                                    <td><input type="radio" name="optionsRadios" value="option"/></td>
-                                    <td>10</td>
-                                    <td>QWER123145</td>
-                                    <td>路虎</td>
-                                    <td>123,456,00</td>
-                                </tr>
-                                </tbody>-->
-                            </table>
+                            <table id="table"></table>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -466,9 +382,55 @@
             </div>
         </div>
         <script>
-            function indexFormatter(value, row, index) {
-                return index + 1;
-            }
+            $('#table').bootstrapTable({
+                method: "get",
+                toolbar: "#toolbar", //工具栏
+                cache: true,
+                sortable: true,
+                sortName: "id",
+                sortOrder: "asc",
+                sortStable: true,
+                pagination: true,
+                pageNumber: 1,
+                pageSize: 10,
+                pageList: [5, 10, 15, 20],
+                selectItemName:'code',
+                smartDisplay:true,
+                showRefresh:true,
+                //paginationPreText: '上一页',
+                //paginationNextText: '下一页',
+                singleSelect: true,
+                checkboxHeader: true,
+                url: '/receipt/receiptList',
+                queryParamsType: '',
+                //sidePagination: 'server',
+                strictSearch: false,
+                searchText: '',
+                minimumCountColumns: 2,
+                clickToSelect: true,
+                search: true,
+                columns: [{
+                    title: '序号',
+                    field: 'id',
+                    radio: true,
+                }, {
+                    field: 'code',
+                    title: '仓单号'
+                },{
+                    field: 'price',
+                    title: '价格'
+                }, {
+                    field: 'brand',
+                    title: '品牌'
+                }, {
+                    field: 'depotAddress',
+                    title: '仓储名称'
+                },{
+                    field: 'valid',
+                    title: '仓单有效期'
+                }]
+            })
+
 
             $("#inputReceiptNo").focus(function () {
                 $('#myModal').modal('show');

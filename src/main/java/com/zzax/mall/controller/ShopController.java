@@ -30,7 +30,7 @@ public class ShopController {
 
     @RequestMapping(value = "/add",method = RequestMethod.GET)
     public String addShop(){
-        return "shop/add";
+        return "shop/add1";
     }
 
     @RequestMapping(value = "/detail",method = RequestMethod.GET)

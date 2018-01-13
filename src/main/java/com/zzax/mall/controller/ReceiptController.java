@@ -1,11 +1,15 @@
 package com.zzax.mall.controller;
 
+import com.zzax.mall.domain.Receipt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import javax.websocket.server.PathParam;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @Description 我的仓单模块
@@ -21,6 +25,27 @@ public class ReceiptController {
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String index(){
         return "receipt/list";
+    }
+
+    @RequestMapping(value = "/receiptList",method = RequestMethod.GET)
+    @ResponseBody
+    public List list(@RequestParam(value = "pageNumber",required = false) String pageNumber, @RequestParam(value = "pageSize",required = false) String pageSize){
+        logger.info("{}",pageNumber);
+        logger.info("{}",pageSize);
+
+        List list = new ArrayList();
+        for (int i = 0; i < 80; i++) {
+            Receipt receipt = new Receipt();
+            receipt.setBrand("路虎");
+            receipt.setCode("CD001002003"+i);
+            receipt.setId(i);
+            receipt.setPrice("123456");
+            receipt.setValid("2012-12-12 12:12:11");
+            receipt.setDepotAddress("郑州杞信仓库");
+            list.add(receipt);
+
+        }
+        return list;
     }
 
     @RequestMapping(value = "/detail",method = RequestMethod.GET)
