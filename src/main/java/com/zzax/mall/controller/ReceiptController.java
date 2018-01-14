@@ -2,6 +2,7 @@ package com.zzax.mall.controller;
 
 import com.zzax.mall.domain.page.PageResult;
 import com.zzax.mall.domain.Receipt;
+import com.zzax.mall.service.ReceiptService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -19,16 +20,20 @@ import java.util.*;
 @RequestMapping(value = "/receipt")
 public class ReceiptController {
     public static final Logger logger = LoggerFactory.getLogger(ReceiptController.class);
+    private ReceiptService receiptService;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String index() {
-        return "receipt/list";
-    }
 
     @RequestMapping(value = "/receiptList", method = RequestMethod.GET)
     @ResponseBody
     public PageResult<Receipt> list(PageResult result) {
         logger.info("{}", result);
+        return receiptService.getList(result);
+
+
+
+
+
+        /*
         List list = new ArrayList();
         for (int i = 0; i < result.getPageSize(); i++) {
             Receipt receipt = new Receipt();
@@ -46,18 +51,16 @@ public class ReceiptController {
         pageResult.setRows(list);
         pageResult.setPageNumber(result.getPageNumber());
         pageResult.setPageSize(10);
-        return pageResult;
+        return pageResult;*/
     }
 
-    @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public String detail() {
+    /**
+     * 根据仓单ID查看仓单详情
+     *
+     * @return
+     */
+    @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+    public String detail(@PathVariable("id") String id) {
         return "receipt/detail";
     }
-
-    @RequestMapping(value = "/detail1", method = RequestMethod.GET)
-    public String detail1() {
-        return "receipt/detail1";
-    }
-
-
 }

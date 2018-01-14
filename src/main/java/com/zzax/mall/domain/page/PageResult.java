@@ -14,6 +14,10 @@ public class PageResult<T> extends QueryParam {
     private Integer total;
     private List<T> rows;
 
+    public Integer getStart() {
+        return (pageNumber - 1) * pageSize;
+    }
+
     public Integer getPageNumber() {
         return pageNumber;
     }
@@ -43,6 +47,16 @@ public class PageResult<T> extends QueryParam {
     }
 
     public void setRows(List<T> rows) {
+        this.rows = rows;
+    }
+
+    public PageResult() {
+    }
+
+    public PageResult(Integer pageNumber, Integer pageSize, Integer total, List<T> rows) {
+        this.pageNumber = pageNumber;
+        this.pageSize = pageSize;
+        this.total = total;
         this.rows = rows;
     }
 
