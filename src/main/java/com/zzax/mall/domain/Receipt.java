@@ -1,40 +1,59 @@
 package com.zzax.mall.domain;
 
+import java.math.BigDecimal;
+
 public class Receipt {
-    private Integer id;
+    private String id;
+
+    private String userId;
 
     private String code;
 
-    private String price;
+    private BigDecimal price;
 
     private String status;
 
-    private String brand;
-
     private String depotAddress;
 
-    private String valid;
+    private String positionName;
 
-    public Receipt(Integer id, String code, String price, String status, String brand, String depotAddress, String valid) {
+    private String positionCode;
+
+    private String insuranceNam;
+
+    private String insuranceNo;
+
+    public Receipt(String id, String userId, String code, BigDecimal price, String status, String depotAddress, String positionName, String positionCode, String insuranceNam, String insuranceNo) {
         this.id = id;
+        this.userId = userId;
         this.code = code;
         this.price = price;
         this.status = status;
-        this.brand = brand;
         this.depotAddress = depotAddress;
-        this.valid = valid;
+        this.positionName = positionName;
+        this.positionCode = positionCode;
+        this.insuranceNam = insuranceNam;
+        this.insuranceNo = insuranceNo;
     }
 
     public Receipt() {
         super();
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = id == null ? null : id.trim();
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
     public String getCode() {
@@ -45,12 +64,12 @@ public class Receipt {
         this.code = code == null ? null : code.trim();
     }
 
-    public String getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
-        this.price = price == null ? null : price.trim();
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     public String getStatus() {
@@ -61,14 +80,6 @@ public class Receipt {
         this.status = status == null ? null : status.trim();
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand == null ? null : brand.trim();
-    }
-
     public String getDepotAddress() {
         return depotAddress;
     }
@@ -77,11 +88,35 @@ public class Receipt {
         this.depotAddress = depotAddress == null ? null : depotAddress.trim();
     }
 
-    public String getValid() {
-        return valid;
+    public String getPositionName() {
+        return positionName;
     }
 
-    public void setValid(String valid) {
-        this.valid = valid == null ? null : valid.trim();
+    public void setPositionName(String positionName) {
+        this.positionName = positionName == null ? null : positionName.trim();
+    }
+
+    public String getPositionCode() {
+        return positionCode;
+    }
+
+    public void setPositionCode(String positionCode) {
+        this.positionCode = positionCode == null ? null : positionCode.trim();
+    }
+
+    public String getInsuranceNam() {
+        return insuranceNam;
+    }
+
+    public void setInsuranceNam(String insuranceNam) {
+        this.insuranceNam = insuranceNam == null ? null : insuranceNam.trim();
+    }
+
+    public String getInsuranceNo() {
+        return insuranceNo;
+    }
+
+    public void setInsuranceNo(String insuranceNo) {
+        this.insuranceNo = insuranceNo == null ? null : insuranceNo.trim();
     }
 }

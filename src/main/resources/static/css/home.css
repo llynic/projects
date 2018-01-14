@@ -6,6 +6,7 @@
     top: 0px;
     left: 0px;
     position: fixed;
+    z-index: 999;
 }
 .title{
     padding-top: 11px;
@@ -13,7 +14,8 @@
 }
 .footer{
     font-size: 12px;
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     padding-left: 45%;
+    z-index: -1;
 }

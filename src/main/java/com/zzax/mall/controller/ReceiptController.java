@@ -1,15 +1,13 @@
 package com.zzax.mall.controller;
 
+import com.zzax.mall.domain.page.PageResult;
 import com.zzax.mall.domain.Receipt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Description 我的仓单模块
@@ -22,39 +20,42 @@ import java.util.List;
 public class ReceiptController {
     public static final Logger logger = LoggerFactory.getLogger(ReceiptController.class);
 
-    @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public String index(){
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    public String index() {
         return "receipt/list";
     }
 
-    @RequestMapping(value = "/receiptList",method = RequestMethod.GET)
+    @RequestMapping(value = "/receiptList", method = RequestMethod.GET)
     @ResponseBody
-    public List list(@RequestParam(value = "pageNumber",required = false) String pageNumber, @RequestParam(value = "pageSize",required = false) String pageSize){
-        logger.info("{}",pageNumber);
-        logger.info("{}",pageSize);
-
+    public PageResult<Receipt> list(PageResult result) {
+        logger.info("{}", result);
         List list = new ArrayList();
-        for (int i = 0; i < 80; i++) {
+        for (int i = 0; i < result.getPageSize(); i++) {
             Receipt receipt = new Receipt();
-            receipt.setBrand("路虎");
-            receipt.setCode("CD001002003"+i);
-            receipt.setId(i);
-            receipt.setPrice("123456");
-            receipt.setValid("2012-12-12 12:12:11");
+            //receipt.setBrand("路虎");
+            receipt.setCode("CD001002003" + i);
+            //receipt.setId(i);
+            receipt.setStatus(i % 2 + "");
+            //receipt.setPrice("123456");
+            //receipt.setValid(new Date());
             receipt.setDepotAddress("郑州杞信仓库");
             list.add(receipt);
-
         }
-        return list;
+        PageResult<Receipt> pageResult = new PageResult<>();
+        pageResult.setTotal(50);
+        pageResult.setRows(list);
+        pageResult.setPageNumber(result.getPageNumber());
+        pageResult.setPageSize(10);
+        return pageResult;
     }
 
-    @RequestMapping(value = "/detail",method = RequestMethod.GET)
-    public String detail(){
+    @RequestMapping(value = "/detail", method = RequestMethod.GET)
+    public String detail() {
         return "receipt/detail";
     }
 
-    @RequestMapping(value = "/detail1",method = RequestMethod.GET)
-    public String detail1(){
+    @RequestMapping(value = "/detail1", method = RequestMethod.GET)
+    public String detail1() {
         return "receipt/detail1";
     }
 
