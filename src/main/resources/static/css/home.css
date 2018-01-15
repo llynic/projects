@@ -14,8 +14,11 @@
 }
 .footer{
     font-size: 12px;
-    position: fixed;
-    bottom: 10px;
-    padding-left: 45%;
-    z-index: -1;
+    margin: 0 43%;
+    width: 500px;
+    height: 20px;
+    /*bottom: 10px;*/
+    /*position: fixed;*/
+    /*border: 1px solid #0062cc;*/
+    /*z-index: -1;*/
 }

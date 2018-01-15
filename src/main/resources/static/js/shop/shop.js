@@ -89,31 +89,34 @@ $(function () {
     $("#modalSave").click(function () {
         var a = $('#table').bootstrapTable('getSelections');
         if (a.length >= 1) {
+            $('#myModal').modal('hide');
             var receiptId = a[a.length - 1].id;
             console.log(a[a.length - 1].id);
             $.ajax({
-                url: "/receipt/detail/",
+                url: "",
                 type: "get",
                 dataType: "json",
                 data: {"id": receiptId},
                 timeout:15000,
                 beforeSend:function (XMLHttpRequest) {
-                    alert('远程调用开始...');
-                    //$("#loading").html("<img src='/jqueryStu/images/loading.gif' />");
+                    //alert('远程调用开始...');
+                    console.log("调用开始");
+                    $("#loading").html("<img src='/images/timg.gif'/>");
                 },
                 success:function (data,textStatus) {
-                    alert('开始回调，状态文本值：'+textStatus+' 返回数据：'+data);
-                    // $("#loading").empty();
+                    //alert('开始回调，状态文本值：'+textStatus+' 返回数据：'+data);
+                    $("#loading").empty();
                 },
                 complete:function(XMLHttpRequest,textStatus){
-                    alert('远程调用成功，状态文本值：'+textStatus);
-                    //$("#loading").empty();
+                    //alert('远程调用成功，状态文本值：'+textStatus);
+                    $("#loading").empty();
                 },
                 error:function(XMLHttpRequest,textStatus,errorThrown){
-                    alert('error...状态文本值：'+textStatus+" 异常信息："+errorThrown);
-                    //$("#loading").empty();
+                    //alert('error...状态文本值：'+textStatus+" 异常信息："+errorThrown);
+                    $("#loading").empty();
                 }
             })
+            //window.location.href="";
         } else {
             alert("请选择一条仓单")
         }

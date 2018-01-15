@@ -22,12 +22,12 @@
     <script th:src="@{/js/bootstrap/bootstrap-table.min.js}"></script>
     <script th:src="@{/js/bootstrap/bootstrap-table-zh-CN.js}"></script>
 </head>
-<body style="font-size: 12px;">
+<body style="font-size: 12px;height: 100%">
 <div th:fragment="navbar" class="wrapper" role="navigation">
     <div th:replace="fragments/header :: header">Header</div>
     <div th:replace="fragments/left :: left">Left</div>
     <div layout:fragment="content" id="content"></div>
-    <div style="margin-top: 10px" th:replace="fragments/footer :: footer">Footer</div>
+    <div class="footer" th:include="fragments/footer :: footer">Footer</div>
 </div>
 </body>
 </html>

@@ -1,8 +1,13 @@
 package com.zzax.mall.controller;
 
 import com.sun.org.apache.regexp.internal.RE;
+import com.zzax.mall.domain.Goods;
+import com.zzax.mall.domain.Receipt;
+import com.zzax.mall.service.GoodsService;
+import com.zzax.mall.service.ReceiptService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,8 +24,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ShopController {
     public static final Logger logger = LoggerFactory.getLogger(ShopController.class);
 
+    @Autowired
+    private ReceiptService receiptService;
+
+    @Autowired
+    private GoodsService goodsService;
+
     @RequestMapping(value = "/add",method = RequestMethod.GET)
     public String addShop(){
+        /*Receipt receipt = receiptService.selectReceiptById(id);
+        Goods goods = goodsService.selectGoodsById(receipt.getId());*/
         return "shop/add";
     }
 
