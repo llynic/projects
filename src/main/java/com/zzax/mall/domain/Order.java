@@ -1,40 +1,39 @@
 package com.zzax.mall.domain;
 
+import java.util.Date;
+
 public class Order {
     private Integer id;
 
+    private Integer userId;
+
+    private Integer buyerId;
+
     private String code;
 
-    private String createTime;
+    private Date payDate;
 
-    private String image;
-
-    private String title;
-
-    private String quantity;
-
-    private String unitPrice;
+    private Date createDate;
 
     private String totalPrice;
 
-    private String status;
-
     private String fare;
 
-    private String buyer;
+    private String status;
 
-    public Order(Integer id, String code, String createTime, String image, String title, String quantity, String unitPrice, String totalPrice, String status, String fare, String buyer) {
+    private String message;
+
+    public Order(Integer id, Integer userId, Integer buyerId, String code, Date payDate, Date createDate, String totalPrice, String fare, String status, String message) {
         this.id = id;
+        this.userId = userId;
+        this.buyerId = buyerId;
         this.code = code;
-        this.createTime = createTime;
-        this.image = image;
-        this.title = title;
-        this.quantity = quantity;
-        this.unitPrice = unitPrice;
+        this.payDate = payDate;
+        this.createDate = createDate;
         this.totalPrice = totalPrice;
-        this.status = status;
         this.fare = fare;
-        this.buyer = buyer;
+        this.status = status;
+        this.message = message;
     }
 
     public Order() {
@@ -49,6 +48,22 @@ public class Order {
         this.id = id;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Integer getBuyerId() {
+        return buyerId;
+    }
+
+    public void setBuyerId(Integer buyerId) {
+        this.buyerId = buyerId;
+    }
+
     public String getCode() {
         return code;
     }
@@ -57,44 +72,20 @@ public class Order {
         this.code = code == null ? null : code.trim();
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public Date getPayDate() {
+        return payDate;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime == null ? null : createTime.trim();
+    public void setPayDate(Date payDate) {
+        this.payDate = payDate;
     }
 
-    public String getImage() {
-        return image;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setImage(String image) {
-        this.image = image == null ? null : image.trim();
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity == null ? null : quantity.trim();
-    }
-
-    public String getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(String unitPrice) {
-        this.unitPrice = unitPrice == null ? null : unitPrice.trim();
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public String getTotalPrice() {
@@ -105,14 +96,6 @@ public class Order {
         this.totalPrice = totalPrice == null ? null : totalPrice.trim();
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
-    }
-
     public String getFare() {
         return fare;
     }
@@ -121,11 +104,19 @@ public class Order {
         this.fare = fare == null ? null : fare.trim();
     }
 
-    public String getBuyer() {
-        return buyer;
+    public String getStatus() {
+        return status;
     }
 
-    public void setBuyer(String buyer) {
-        this.buyer = buyer == null ? null : buyer.trim();
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message == null ? null : message.trim();
     }
 }

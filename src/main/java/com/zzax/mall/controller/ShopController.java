@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * @Description
+ * @Description 我的商品模块
  * @Created by wangzhenjia
  * @Date 21:14 2018/1/6
  */
@@ -19,18 +19,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ShopController {
     public static final Logger logger = LoggerFactory.getLogger(ShopController.class);
 
-    /**
-     * 我的仓单列表
-     * @return
-     */
-    @GetMapping("/list")
-    public String shopList(){
-        return "shop/list";
-    }
-
     @RequestMapping(value = "/add",method = RequestMethod.GET)
     public String addShop(){
-        return "shop/add1";
+        return "shop/add";
     }
 
     @RequestMapping(value = "/detail",method = RequestMethod.GET)

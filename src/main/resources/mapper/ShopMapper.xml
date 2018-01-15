@@ -1,143 +1,190 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zzax.mall.mapper.ShopMapper" >
-  <resultMap id="BaseResultMap" type="com.zzax.mall.domain.Shop" >
-    <constructor >
-      <idArg column="ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="CREATE_TIME" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="UNIT_PRICE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="QUANTITY" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="TOTAL_PRICE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="IMAGE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzax.mall.mapper.ShopMapper">
+  <resultMap id="BaseResultMap" type="com.zzax.mall.domain.Shop">
+    <constructor>
+      <idArg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="RECEIPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="USER_ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="TITLE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="IMAGE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRICE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DES" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="UPDATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="CREATOR" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="EDITOR" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List" >
-    ID, CREATE_TIME, CODE, NAME, UNIT_PRICE, QUANTITY, TOTAL_PRICE, IMAGE, STATUS
+  <sql id="Base_Column_List">
+    ID, RECEIPT_ID, USER_ID, TITLE, CODE, IMAGE, STATUS, PRICE, DES, CREATE_DATE, UPDATE_DATE, 
+    CREATOR, EDITOR
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_shop
     where ID = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_shop
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.zzax.mall.domain.Shop" >
-    insert into t_shop (ID, CREATE_TIME, CODE, 
-      NAME, UNIT_PRICE, QUANTITY, 
-      TOTAL_PRICE, IMAGE, STATUS
-      )
-    values (#{id,jdbcType=INTEGER}, #{createTime,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{unitPrice,jdbcType=VARCHAR}, #{quantity,jdbcType=VARCHAR}, 
-      #{totalPrice,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
-      )
+  <insert id="insert" parameterType="com.zzax.mall.domain.Shop">
+    insert into t_shop (ID, RECEIPT_ID, USER_ID, 
+      TITLE, CODE, IMAGE, 
+      STATUS, PRICE, DES, 
+      CREATE_DATE, UPDATE_DATE, CREATOR, 
+      EDITOR)
+    values (#{id,jdbcType=INTEGER}, #{receiptId,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, #{des,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
+      #{editor,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.zzax.mall.domain.Shop" >
+  <insert id="insertSelective" parameterType="com.zzax.mall.domain.Shop">
     insert into t_shop
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         ID,
       </if>
-      <if test="createTime != null" >
-        CREATE_TIME,
+      <if test="receiptId != null">
+        RECEIPT_ID,
       </if>
-      <if test="code != null" >
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="code != null">
         CODE,
       </if>
-      <if test="name != null" >
-        NAME,
-      </if>
-      <if test="unitPrice != null" >
-        UNIT_PRICE,
-      </if>
-      <if test="quantity != null" >
-        QUANTITY,
-      </if>
-      <if test="totalPrice != null" >
-        TOTAL_PRICE,
-      </if>
-      <if test="image != null" >
+      <if test="image != null">
         IMAGE,
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         STATUS,
       </if>
+      <if test="price != null">
+        PRICE,
+      </if>
+      <if test="des != null">
+        DES,
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE,
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE,
+      </if>
+      <if test="creator != null">
+        CREATOR,
+      </if>
+      <if test="editor != null">
+        EDITOR,
+      </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=VARCHAR},
+      <if test="receiptId != null">
+        #{receiptId,jdbcType=VARCHAR},
       </if>
-      <if test="code != null" >
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
         #{code,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="unitPrice != null" >
-        #{unitPrice,jdbcType=VARCHAR},
-      </if>
-      <if test="quantity != null" >
-        #{quantity,jdbcType=VARCHAR},
-      </if>
-      <if test="totalPrice != null" >
-        #{totalPrice,jdbcType=VARCHAR},
-      </if>
-      <if test="image != null" >
+      <if test="image != null">
         #{image,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null">
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        #{editor,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zzax.mall.domain.Shop" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzax.mall.domain.Shop">
     update t_shop
-    <set >
-      <if test="createTime != null" >
-        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+    <set>
+      <if test="receiptId != null">
+        RECEIPT_ID = #{receiptId,jdbcType=VARCHAR},
       </if>
-      <if test="code != null" >
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
         CODE = #{code,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        NAME = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="unitPrice != null" >
-        UNIT_PRICE = #{unitPrice,jdbcType=VARCHAR},
-      </if>
-      <if test="quantity != null" >
-        QUANTITY = #{quantity,jdbcType=VARCHAR},
-      </if>
-      <if test="totalPrice != null" >
-        TOTAL_PRICE = #{totalPrice,jdbcType=VARCHAR},
-      </if>
-      <if test="image != null" >
+      <if test="image != null">
         IMAGE = #{image,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
+      <if test="status != null">
         STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        PRICE = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="des != null">
+        DES = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        CREATOR = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null">
+        EDITOR = #{editor,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zzax.mall.domain.Shop" >
+  <update id="updateByPrimaryKey" parameterType="com.zzax.mall.domain.Shop">
     update t_shop
-    set CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+    set RECEIPT_ID = #{receiptId,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=INTEGER},
+      TITLE = #{title,jdbcType=VARCHAR},
       CODE = #{code,jdbcType=VARCHAR},
-      NAME = #{name,jdbcType=VARCHAR},
-      UNIT_PRICE = #{unitPrice,jdbcType=VARCHAR},
-      QUANTITY = #{quantity,jdbcType=VARCHAR},
-      TOTAL_PRICE = #{totalPrice,jdbcType=VARCHAR},
       IMAGE = #{image,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR}
+      STATUS = #{status,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=VARCHAR},
+      DES = #{des,jdbcType=VARCHAR},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+      CREATOR = #{creator,jdbcType=VARCHAR},
+      EDITOR = #{editor,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

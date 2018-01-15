@@ -1,8 +1,9 @@
 package com.zzax.mall.domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Receipt {
+public class Receipt implements Serializable{
     private String id;
 
     private String userId;
@@ -118,5 +119,21 @@ public class Receipt {
 
     public void setInsuranceNo(String insuranceNo) {
         this.insuranceNo = insuranceNo == null ? null : insuranceNo.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Receipt{" +
+                "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", code='" + code + '\'' +
+                ", price=" + price +
+                ", status='" + status + '\'' +
+                ", depotAddress='" + depotAddress + '\'' +
+                ", positionName='" + positionName + '\'' +
+                ", positionCode='" + positionCode + '\'' +
+                ", insuranceNam='" + insuranceNam + '\'' +
+                ", insuranceNo='" + insuranceNo + '\'' +
+                '}';
     }
 }

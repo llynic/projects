@@ -1,11 +1,15 @@
 package com.zzax.mall.controller;
 
+import com.zzax.mall.domain.Goods;
 import com.zzax.mall.domain.page.PageResult;
 import com.zzax.mall.domain.Receipt;
+import com.zzax.mall.service.GoodsService;
 import com.zzax.mall.service.ReceiptService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -20,38 +24,23 @@ import java.util.*;
 @RequestMapping(value = "/receipt")
 public class ReceiptController {
     public static final Logger logger = LoggerFactory.getLogger(ReceiptController.class);
+
+    @Autowired
     private ReceiptService receiptService;
 
+    @Autowired
+    private GoodsService goodsService;
 
+    /**
+     * 我的仓单列表
+     * @param result
+     * @return
+     */
     @RequestMapping(value = "/receiptList", method = RequestMethod.GET)
     @ResponseBody
     public PageResult<Receipt> list(PageResult result) {
         logger.info("{}", result);
         return receiptService.getList(result);
-
-
-
-
-
-        /*
-        List list = new ArrayList();
-        for (int i = 0; i < result.getPageSize(); i++) {
-            Receipt receipt = new Receipt();
-            //receipt.setBrand("路虎");
-            receipt.setCode("CD001002003" + i);
-            //receipt.setId(i);
-            receipt.setStatus(i % 2 + "");
-            //receipt.setPrice("123456");
-            //receipt.setValid(new Date());
-            receipt.setDepotAddress("郑州杞信仓库");
-            list.add(receipt);
-        }
-        PageResult<Receipt> pageResult = new PageResult<>();
-        pageResult.setTotal(50);
-        pageResult.setRows(list);
-        pageResult.setPageNumber(result.getPageNumber());
-        pageResult.setPageSize(10);
-        return pageResult;*/
     }
 
     /**
@@ -60,7 +49,14 @@ public class ReceiptController {
      * @return
      */
     @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
-    public String detail(@PathVariable("id") String id) {
+    public String detail(@PathVariable("id") String id, Model model) {
+        logger.info("当前查看的仓单id为:" + id);
+        Receipt receipt = receiptService.selectReceiptById(id);
+        Goods goods = goodsService.selectGoodsById(receipt.getId());
+        model.addAttribute("receipt", receipt);
+        logger.info("{}",receipt);
+        model.addAttribute("goods", goods);
+        logger.info("{}",goods);
         return "receipt/detail";
     }
 }

@@ -1,57 +1,48 @@
 package com.zzax.mall.domain;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import java.util.Date;
 
-import javax.validation.constraints.Min;
-import java.io.Serializable;
-
-/**
- * @Description 商品详情对象
- * @Created By : wzj
- * @DATE 2018年1月6日10:34:18
- */
-public class Shop implements Serializable{
-    /* id */
+public class Shop {
     private Integer id;
 
-    /* 创建时间 */
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private String createTime;
+    private String receiptId;
 
-    /* 商品编码 */
+    private Integer userId;
+
+    private String title;
+
     private String code;
 
-    /* 商品标题 */
-    private String name;
-
-    /* 商品单价 */
-    @Min(value = 0,message = "商品单价不能小于0")
-    private String unitPrice;
-
-    /* 商品数量 */
-    @Min(value = 0,message = "商品数量不能小于0")
-    private String quantity;
-
-    /* 商品总价 */
-    @Min(value = 0,message = "商品总价不能小于0")
-    private String totalPrice;
-
-    /* 商品图片 */
     private String image;
 
-    /* 商品状态 */
     private String status;
 
-    public Shop(Integer id, String createTime, String code, String name, String unitPrice, String quantity, String totalPrice, String image, String status) {
+    private String price;
+
+    private String des;
+
+    private Date createDate;
+
+    private Date updateDate;
+
+    private String creator;
+
+    private String editor;
+
+    public Shop(Integer id, String receiptId, Integer userId, String title, String code, String image, String status, String price, String des, Date createDate, Date updateDate, String creator, String editor) {
         this.id = id;
-        this.createTime = createTime;
+        this.receiptId = receiptId;
+        this.userId = userId;
+        this.title = title;
         this.code = code;
-        this.name = name;
-        this.unitPrice = unitPrice;
-        this.quantity = quantity;
-        this.totalPrice = totalPrice;
         this.image = image;
         this.status = status;
+        this.price = price;
+        this.des = des;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+        this.creator = creator;
+        this.editor = editor;
     }
 
     public Shop() {
@@ -66,12 +57,28 @@ public class Shop implements Serializable{
         this.id = id;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public String getReceiptId() {
+        return receiptId;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime == null ? null : createTime.trim();
+    public void setReceiptId(String receiptId) {
+        this.receiptId = receiptId == null ? null : receiptId.trim();
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
     public String getCode() {
@@ -80,38 +87,6 @@ public class Shop implements Serializable{
 
     public void setCode(String code) {
         this.code = code == null ? null : code.trim();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getUnitPrice() {
-        return unitPrice;
-    }
-
-    public void setUnitPrice(String unitPrice) {
-        this.unitPrice = unitPrice == null ? null : unitPrice.trim();
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity == null ? null : quantity.trim();
-    }
-
-    public String getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(String totalPrice) {
-        this.totalPrice = totalPrice == null ? null : totalPrice.trim();
     }
 
     public String getImage() {
@@ -130,18 +105,51 @@ public class Shop implements Serializable{
         this.status = status == null ? null : status.trim();
     }
 
-    @Override
-    public String toString() {
-        return "Shop{" +
-                "id=" + id +
-                ", createTime='" + createTime + '\'' +
-                ", code='" + code + '\'' +
-                ", name='" + name + '\'' +
-                ", unitPrice='" + unitPrice + '\'' +
-                ", quantity='" + quantity + '\'' +
-                ", totalPrice='" + totalPrice + '\'' +
-                ", image='" + image + '\'' +
-                ", status='" + status + '\'' +
-                '}';
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price == null ? null : price.trim();
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des == null ? null : des.trim();
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator == null ? null : creator.trim();
+    }
+
+    public String getEditor() {
+        return editor;
+    }
+
+    public void setEditor(String editor) {
+        this.editor = editor == null ? null : editor.trim();
     }
 }

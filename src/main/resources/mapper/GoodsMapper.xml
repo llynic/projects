@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzax.mall.mapper.GoodsMapper">
+  <resultMap id="BaseResultMap" type="com.zzax.mall.domain.Goods">
+    <constructor>
+      <idArg column="ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RECEIPT_ID" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="KIND" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="KIND_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PACK" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="BRAND" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MODEL" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MARK" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="WEIGHT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STANDARDS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="QUANTITY" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="UNIT" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRICE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRODUCER" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRODUCER_AREA" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PRODUCER_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, RECEIPT_ID, NAME, KIND, KIND_CODE, CODE, PACK, BRAND, MODEL, MARK, WEIGHT, STANDARDS, 
+    QUANTITY, UNIT, PRICE, PRODUCER, PRODUCER_AREA, PRODUCER_DATE
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_goods
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_goods
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.zzax.mall.domain.Goods">
+    insert into t_goods (ID, RECEIPT_ID, NAME, 
+      KIND, KIND_CODE, CODE, 
+      PACK, BRAND, MODEL, 
+      MARK, WEIGHT, STANDARDS, 
+      QUANTITY, UNIT, PRICE, 
+      PRODUCER, PRODUCER_AREA, PRODUCER_DATE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{receiptId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+      #{kind,jdbcType=VARCHAR}, #{kindCode,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
+      #{pack,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, 
+      #{mark,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{standards,jdbcType=VARCHAR}, 
+      #{quantity,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
+      #{producer,jdbcType=VARCHAR}, #{producerArea,jdbcType=VARCHAR}, #{producerDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zzax.mall.domain.Goods">
+    insert into t_goods
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="receiptId != null">
+        RECEIPT_ID,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="kind != null">
+        KIND,
+      </if>
+      <if test="kindCode != null">
+        KIND_CODE,
+      </if>
+      <if test="code != null">
+        CODE,
+      </if>
+      <if test="pack != null">
+        PACK,
+      </if>
+      <if test="brand != null">
+        BRAND,
+      </if>
+      <if test="model != null">
+        MODEL,
+      </if>
+      <if test="mark != null">
+        MARK,
+      </if>
+      <if test="weight != null">
+        WEIGHT,
+      </if>
+      <if test="standards != null">
+        STANDARDS,
+      </if>
+      <if test="quantity != null">
+        QUANTITY,
+      </if>
+      <if test="unit != null">
+        UNIT,
+      </if>
+      <if test="price != null">
+        PRICE,
+      </if>
+      <if test="producer != null">
+        PRODUCER,
+      </if>
+      <if test="producerArea != null">
+        PRODUCER_AREA,
+      </if>
+      <if test="producerDate != null">
+        PRODUCER_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptId != null">
+        #{receiptId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null">
+        #{kind,jdbcType=VARCHAR},
+      </if>
+      <if test="kindCode != null">
+        #{kindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="pack != null">
+        #{pack,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="standards != null">
+        #{standards,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="producer != null">
+        #{producer,jdbcType=VARCHAR},
+      </if>
+      <if test="producerArea != null">
+        #{producerArea,jdbcType=VARCHAR},
+      </if>
+      <if test="producerDate != null">
+        #{producerDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzax.mall.domain.Goods">
+    update t_goods
+    <set>
+      <if test="receiptId != null">
+        RECEIPT_ID = #{receiptId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="kind != null">
+        KIND = #{kind,jdbcType=VARCHAR},
+      </if>
+      <if test="kindCode != null">
+        KIND_CODE = #{kindCode,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="pack != null">
+        PACK = #{pack,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        BRAND = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        MODEL = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null">
+        MARK = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        WEIGHT = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="standards != null">
+        STANDARDS = #{standards,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        QUANTITY = #{quantity,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        UNIT = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        PRICE = #{price,jdbcType=VARCHAR},
+      </if>
+      <if test="producer != null">
+        PRODUCER = #{producer,jdbcType=VARCHAR},
+      </if>
+      <if test="producerArea != null">
+        PRODUCER_AREA = #{producerArea,jdbcType=VARCHAR},
+      </if>
+      <if test="producerDate != null">
+        PRODUCER_DATE = #{producerDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zzax.mall.domain.Goods">
+    update t_goods
+    set RECEIPT_ID = #{receiptId,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      KIND = #{kind,jdbcType=VARCHAR},
+      KIND_CODE = #{kindCode,jdbcType=VARCHAR},
+      CODE = #{code,jdbcType=VARCHAR},
+      PACK = #{pack,jdbcType=VARCHAR},
+      BRAND = #{brand,jdbcType=VARCHAR},
+      MODEL = #{model,jdbcType=VARCHAR},
+      MARK = #{mark,jdbcType=VARCHAR},
+      WEIGHT = #{weight,jdbcType=VARCHAR},
+      STANDARDS = #{standards,jdbcType=VARCHAR},
+      QUANTITY = #{quantity,jdbcType=VARCHAR},
+      UNIT = #{unit,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=VARCHAR},
+      PRODUCER = #{producer,jdbcType=VARCHAR},
+      PRODUCER_AREA = #{producerArea,jdbcType=VARCHAR},
+      PRODUCER_DATE = #{producerDate,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

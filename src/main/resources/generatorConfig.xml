@@ -58,7 +58,7 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-        <table tableName="t_receipt" domainObjectName="Receipt"
+        <table tableName="t_shopattribute" domainObjectName="ShopAttribute"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">

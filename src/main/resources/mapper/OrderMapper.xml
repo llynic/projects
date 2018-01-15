@@ -1,166 +1,154 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.zzax.mall.mapper.OrderMapper" >
-  <resultMap id="BaseResultMap" type="com.zzax.mall.domain.Order" >
-    <constructor >
-      <idArg column="ID" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CREATE_TIME" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="IMAGE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="TITLE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="QUANTITY" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="UNIT_PRICE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="TOTAL_PRICE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="FARE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="BUYER" jdbcType="VARCHAR" javaType="java.lang.String" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzax.mall.mapper.OrderMapper">
+  <resultMap id="BaseResultMap" type="com.zzax.mall.domain.Order">
+    <constructor>
+      <idArg column="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="USER_ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="BUYER_ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="PAY_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="TOTAL_PRICE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="FARE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MESSAGE" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
-  <sql id="Base_Column_List" >
-    ID, CODE, CREATE_TIME, IMAGE, TITLE, QUANTITY, UNIT_PRICE, TOTAL_PRICE, STATUS, FARE, 
-    BUYER
+  <sql id="Base_Column_List">
+    ID, USER_ID, BUYER_ID, CODE, PAY_DATE, CREATE_DATE, TOTAL_PRICE, FARE, STATUS, MESSAGE
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_order
     where ID = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_order
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.zzax.mall.domain.Order" >
-    insert into t_order (ID, CODE, CREATE_TIME, 
-      IMAGE, TITLE, QUANTITY, 
-      UNIT_PRICE, TOTAL_PRICE, STATUS, 
-      FARE, BUYER)
-    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{createTime,jdbcType=VARCHAR}, 
-      #{image,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{quantity,jdbcType=VARCHAR}, 
-      #{unitPrice,jdbcType=VARCHAR}, #{totalPrice,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
-      #{fare,jdbcType=VARCHAR}, #{buyer,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.zzax.mall.domain.Order">
+    insert into t_order (ID, USER_ID, BUYER_ID, 
+      CODE, PAY_DATE, CREATE_DATE, 
+      TOTAL_PRICE, FARE, STATUS, 
+      MESSAGE)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{buyerId,jdbcType=INTEGER}, 
+      #{code,jdbcType=VARCHAR}, #{payDate,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{totalPrice,jdbcType=VARCHAR}, #{fare,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{message,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.zzax.mall.domain.Order" >
+  <insert id="insertSelective" parameterType="com.zzax.mall.domain.Order">
     insert into t_order
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         ID,
       </if>
-      <if test="code != null" >
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="buyerId != null">
+        BUYER_ID,
+      </if>
+      <if test="code != null">
         CODE,
       </if>
-      <if test="createTime != null" >
-        CREATE_TIME,
+      <if test="payDate != null">
+        PAY_DATE,
       </if>
-      <if test="image != null" >
-        IMAGE,
+      <if test="createDate != null">
+        CREATE_DATE,
       </if>
-      <if test="title != null" >
-        TITLE,
-      </if>
-      <if test="quantity != null" >
-        QUANTITY,
-      </if>
-      <if test="unitPrice != null" >
-        UNIT_PRICE,
-      </if>
-      <if test="totalPrice != null" >
+      <if test="totalPrice != null">
         TOTAL_PRICE,
       </if>
-      <if test="status != null" >
-        STATUS,
-      </if>
-      <if test="fare != null" >
+      <if test="fare != null">
         FARE,
       </if>
-      <if test="buyer != null" >
-        BUYER,
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="message != null">
+        MESSAGE,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="code != null" >
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="buyerId != null">
+        #{buyerId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null">
         #{code,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=VARCHAR},
+      <if test="payDate != null">
+        #{payDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="image != null" >
-        #{image,jdbcType=VARCHAR},
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="title != null" >
-        #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="quantity != null" >
-        #{quantity,jdbcType=VARCHAR},
-      </if>
-      <if test="unitPrice != null" >
-        #{unitPrice,jdbcType=VARCHAR},
-      </if>
-      <if test="totalPrice != null" >
+      <if test="totalPrice != null">
         #{totalPrice,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="fare != null" >
+      <if test="fare != null">
         #{fare,jdbcType=VARCHAR},
       </if>
-      <if test="buyer != null" >
-        #{buyer,jdbcType=VARCHAR},
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null">
+        #{message,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zzax.mall.domain.Order" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.zzax.mall.domain.Order">
     update t_order
-    <set >
-      <if test="code != null" >
+    <set>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="buyerId != null">
+        BUYER_ID = #{buyerId,jdbcType=INTEGER},
+      </if>
+      <if test="code != null">
         CODE = #{code,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
-        CREATE_TIME = #{createTime,jdbcType=VARCHAR},
+      <if test="payDate != null">
+        PAY_DATE = #{payDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="image != null" >
-        IMAGE = #{image,jdbcType=VARCHAR},
+      <if test="createDate != null">
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="title != null" >
-        TITLE = #{title,jdbcType=VARCHAR},
-      </if>
-      <if test="quantity != null" >
-        QUANTITY = #{quantity,jdbcType=VARCHAR},
-      </if>
-      <if test="unitPrice != null" >
-        UNIT_PRICE = #{unitPrice,jdbcType=VARCHAR},
-      </if>
-      <if test="totalPrice != null" >
+      <if test="totalPrice != null">
         TOTAL_PRICE = #{totalPrice,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        STATUS = #{status,jdbcType=VARCHAR},
-      </if>
-      <if test="fare != null" >
+      <if test="fare != null">
         FARE = #{fare,jdbcType=VARCHAR},
       </if>
-      <if test="buyer != null" >
-        BUYER = #{buyer,jdbcType=VARCHAR},
+      <if test="status != null">
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null">
+        MESSAGE = #{message,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.zzax.mall.domain.Order" >
+  <update id="updateByPrimaryKey" parameterType="com.zzax.mall.domain.Order">
     update t_order
-    set CODE = #{code,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=VARCHAR},
-      IMAGE = #{image,jdbcType=VARCHAR},
-      TITLE = #{title,jdbcType=VARCHAR},
-      QUANTITY = #{quantity,jdbcType=VARCHAR},
-      UNIT_PRICE = #{unitPrice,jdbcType=VARCHAR},
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      BUYER_ID = #{buyerId,jdbcType=INTEGER},
+      CODE = #{code,jdbcType=VARCHAR},
+      PAY_DATE = #{payDate,jdbcType=TIMESTAMP},
+      CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       TOTAL_PRICE = #{totalPrice,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR},
       FARE = #{fare,jdbcType=VARCHAR},
-      BUYER = #{buyer,jdbcType=VARCHAR}
+      STATUS = #{status,jdbcType=VARCHAR},
+      MESSAGE = #{message,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

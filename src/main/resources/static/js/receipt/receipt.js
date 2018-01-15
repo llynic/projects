@@ -40,7 +40,10 @@ $(function () {
                 title: '序号',
                 field: 'number',
                 formatter: function (value, row, index) {
-                    return index + 1;
+                    //return index + 1;
+                    var pageSize = $('#table').bootstrapTable('getOptions').pageSize;//通过表的#id 可以得到每页多少条
+                    var pageNumber = $('#table').bootstrapTable('getOptions').pageNumber;//通过表的#id 可以得到当前第几页
+                    return pageSize * (pageNumber - 1) + index + 1;    //返回每条的序号： 每页条数 * （当前页 - 1 ）+ 序号
                 },
                 align: 'center'
             }, {
@@ -49,29 +52,29 @@ $(function () {
                 align: 'center'
             }, {
                 field: 'price',
-                title: '价格',
+                title: '价格(元)',
                 align: 'center'
-            }, {
+            },/* {
                 field: 'brand',
                 title: '品牌',
                 align: 'center'
-            }, {
+            },*/ {
                 field: 'depotAddress',
                 title: '仓储名称',
                 align: 'center'
-            }, {
+            }, /*{
                 field: 'valid',
                 title: '仓单有效期',
                 align: 'center'
-            }, {
+            },*/ {
                 field: 'status',
                 title: '仓单状态',
                 align: 'center',
-                formatter:function (value,row,index) {
-                    if(value == 0){
+                formatter: function (value, row, index) {
+                    if (value == 0) {
                         return "未发布";
                     }
-                    if (value == 1){
+                    if (value == 1) {
                         return "已锁定";
                     }
                 }
@@ -80,18 +83,17 @@ $(function () {
                 title: '操作',
                 align: 'center',
                 formatter: function (value, row, index) {
-                    //通过formatter可以自定义列显示的内容
-                    //value：当前field的值，即id
-                    //row：当前行的数据
-                    var a = '<a href="javascript:void(0);" onclick="getDetail('+value+')">查看详情</a>';
-                    return a;
+                    return '<a href="javascript:void(0);" class="detail" title="查看详情">查看详情</a>';
+                },
+                events:{
+                    //此处注意,click 后面要跟一个英文的空格,否则没有效果
+                    'click .detail':function (event,value, row, index) {
+                        window.location.href="/receipt/detail/"+value;
+                    }
                 }
             }]
     });
 
-    function getDetail(value) {
-        console.log(value);
-    }
 
     function queryParams(params) {
         var temp = {

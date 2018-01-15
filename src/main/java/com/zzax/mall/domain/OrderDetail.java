@@ -1,49 +1,33 @@
 package com.zzax.mall.domain;
 
+import java.math.BigDecimal;
+
 public class OrderDetail {
     private Integer id;
 
-    private String code;
+    private Integer shopId;
 
-    private String createTime;
+    private Integer orderId;
 
-    private String payTime;
+    private String title;
 
-    private String buyerAddress;
+    private String image;
 
-    private String buyer;
+    private String quantity;
 
-    private String buyerTel;
+    private BigDecimal unitPrice;
 
-    private String postcode;
+    private BigDecimal totalPrice;
 
-    private String message;
-
-    private String nickname;
-
-    private String realname;
-
-    private String sellerTel;
-
-    private String price;
-
-    private String status;
-
-    public OrderDetail(Integer id, String code, String createTime, String payTime, String buyerAddress, String buyer, String buyerTel, String postcode, String message, String nickname, String realname, String sellerTel, String price, String status) {
+    public OrderDetail(Integer id, Integer shopId, Integer orderId, String title, String image, String quantity, BigDecimal unitPrice, BigDecimal totalPrice) {
         this.id = id;
-        this.code = code;
-        this.createTime = createTime;
-        this.payTime = payTime;
-        this.buyerAddress = buyerAddress;
-        this.buyer = buyer;
-        this.buyerTel = buyerTel;
-        this.postcode = postcode;
-        this.message = message;
-        this.nickname = nickname;
-        this.realname = realname;
-        this.sellerTel = sellerTel;
-        this.price = price;
-        this.status = status;
+        this.shopId = shopId;
+        this.orderId = orderId;
+        this.title = title;
+        this.image = image;
+        this.quantity = quantity;
+        this.unitPrice = unitPrice;
+        this.totalPrice = totalPrice;
     }
 
     public OrderDetail() {
@@ -58,107 +42,59 @@ public class OrderDetail {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public Integer getShopId() {
+        return shopId;
     }
 
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
+    public void setShopId(Integer shopId) {
+        this.shopId = shopId;
     }
 
-    public String getCreateTime() {
-        return createTime;
+    public Integer getOrderId() {
+        return orderId;
     }
 
-    public void setCreateTime(String createTime) {
-        this.createTime = createTime == null ? null : createTime.trim();
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
     }
 
-    public String getPayTime() {
-        return payTime;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPayTime(String payTime) {
-        this.payTime = payTime == null ? null : payTime.trim();
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
     }
 
-    public String getBuyerAddress() {
-        return buyerAddress;
+    public String getImage() {
+        return image;
     }
 
-    public void setBuyerAddress(String buyerAddress) {
-        this.buyerAddress = buyerAddress == null ? null : buyerAddress.trim();
+    public void setImage(String image) {
+        this.image = image == null ? null : image.trim();
     }
 
-    public String getBuyer() {
-        return buyer;
+    public String getQuantity() {
+        return quantity;
     }
 
-    public void setBuyer(String buyer) {
-        this.buyer = buyer == null ? null : buyer.trim();
+    public void setQuantity(String quantity) {
+        this.quantity = quantity == null ? null : quantity.trim();
     }
 
-    public String getBuyerTel() {
-        return buyerTel;
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setBuyerTel(String buyerTel) {
-        this.buyerTel = buyerTel == null ? null : buyerTel.trim();
+    public void setUnitPrice(BigDecimal unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
-    public String getPostcode() {
-        return postcode;
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setPostcode(String postcode) {
-        this.postcode = postcode == null ? null : postcode.trim();
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message == null ? null : message.trim();
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname == null ? null : nickname.trim();
-    }
-
-    public String getRealname() {
-        return realname;
-    }
-
-    public void setRealname(String realname) {
-        this.realname = realname == null ? null : realname.trim();
-    }
-
-    public String getSellerTel() {
-        return sellerTel;
-    }
-
-    public void setSellerTel(String sellerTel) {
-        this.sellerTel = sellerTel == null ? null : sellerTel.trim();
-    }
-
-    public String getPrice() {
-        return price;
-    }
-
-    public void setPrice(String price) {
-        this.price = price == null ? null : price.trim();
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }
