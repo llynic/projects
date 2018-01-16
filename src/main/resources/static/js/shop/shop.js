@@ -93,8 +93,8 @@ $(function () {
             var receiptId = a[a.length - 1].id;
             console.log(a[a.length - 1].id);
             $.ajax({
-                url: "",
-                type: "get",
+                url: "/shop/addShop",
+                type: "POST",
                 dataType: "json",
                 data: {"id": receiptId},
                 timeout:15000,
@@ -106,6 +106,7 @@ $(function () {
                 success:function (data,textStatus) {
                     //alert('开始回调，状态文本值：'+textStatus+' 返回数据：'+data);
                     $("#loading").empty();
+                    window.location.href="/shop/add/"+receiptId;
                 },
                 complete:function(XMLHttpRequest,textStatus){
                     //alert('远程调用成功，状态文本值：'+textStatus);

@@ -3,7 +3,6 @@
       layout:decorator="layout">
 <body>
 <section layout:fragment="content">
-    <div id="loading"></div>
     <div>
         <div>
             <!--标题-->
@@ -19,6 +18,7 @@
         </div>
         <!--信息内容-->
         <div>
+            <div id="loading"></div>
             <div style="display: block">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <!--商品基本信息-->
@@ -119,8 +119,8 @@
                                         <!--左边的信息列表-->
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
-                                                <dt><label style="margin:10px 0 0 0" for="code">车身总长度:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="length" type="text" value="5,000" disabled="disabled"/></dd>
+                                                <dt><label style="margin:10px 0 0 0" for="carLength">车身总长度:</label></dt>
+                                                <dd><input style="width: 70% ;" class="form-control" id="carLength" type="text" value="5,000" disabled="disabled"/></dd>
                                             </div>
                                         </div>
                                         <!--右侧信息展示-->
@@ -152,7 +152,7 @@
                                         <!--左边的信息列表-->
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
-                                                <dt><label style="margin:10px 0 0 0" for="code">高度:</label></dt>
+                                                <dt><label style="margin:10px 0 0 0" for="carHeight">高度:</label></dt>
                                                 <dd><input style="width: 70% ;" class="form-control" id="carHeight" type="text" value="1,861" disabled="disabled"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
@@ -197,7 +197,7 @@
                                         <!--左边的信息列表-->
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
-                                                <dt><label style="margin:10px 0 0 0" for="code">型号:</label></dt>
+                                                <dt><label style="margin:10px 0 0 0" for="engineModel">型号:</label></dt>
                                                 <dd><input style="width: 70% ;" class="form-control" id="engineModel" type="text" value="3.0L V6 机械增压汽油发动机 (340PS)" disabled="disabled"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
