@@ -21,38 +21,43 @@
       <arg column="PRODUCER" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="PRODUCER_AREA" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="PRODUCER_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="VIN_CODE" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
     ID, RECEIPT_ID, NAME, KIND, KIND_CODE, CODE, PACK, BRAND, MODEL, MARK, WEIGHT, STANDARDS, 
-    QUANTITY, UNIT, PRICE, PRODUCER, PRODUCER_AREA, PRODUCER_DATE
+    QUANTITY, UNIT, PRICE, PRODUCER, PRODUCER_AREA, PRODUCER_DATE,VIN_CODE
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from t_goods
     where ID = #{id,jdbcType=VARCHAR}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from t_goods
     where ID = #{id,jdbcType=VARCHAR}
   </delete>
+
   <insert id="insert" parameterType="com.zzax.mall.domain.Goods">
     insert into t_goods (ID, RECEIPT_ID, NAME, 
       KIND, KIND_CODE, CODE, 
       PACK, BRAND, MODEL, 
       MARK, WEIGHT, STANDARDS, 
       QUANTITY, UNIT, PRICE, 
-      PRODUCER, PRODUCER_AREA, PRODUCER_DATE
+      PRODUCER, PRODUCER_AREA, PRODUCER_DATE,VIN_CODE
       )
     values (#{id,jdbcType=VARCHAR}, #{receiptId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
       #{kind,jdbcType=VARCHAR}, #{kindCode,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, 
       #{pack,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, 
       #{mark,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, #{standards,jdbcType=VARCHAR}, 
       #{quantity,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, 
-      #{producer,jdbcType=VARCHAR}, #{producerArea,jdbcType=VARCHAR}, #{producerDate,jdbcType=TIMESTAMP}
+      #{producer,jdbcType=VARCHAR}, #{producerArea,jdbcType=VARCHAR}, #{producerDate,jdbcType=TIMESTAMP},#{vinCode,jdbcType=VARCHAR}
       )
   </insert>
+
   <insert id="insertSelective" parameterType="com.zzax.mall.domain.Goods">
     insert into t_goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -110,6 +115,9 @@
       <if test="producerDate != null">
         PRODUCER_DATE,
       </if>
+      <if test="vinCode != null">
+        VIN_CODE,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -166,8 +174,12 @@
       <if test="producerDate != null">
         #{producerDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="vinCode != null">
+        #{vinCode,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.zzax.mall.domain.Goods">
     update t_goods
     <set>
@@ -222,9 +234,13 @@
       <if test="producerDate != null">
         PRODUCER_DATE = #{producerDate,jdbcType=TIMESTAMP},
       </if>
+      <if test="vinCode != null">
+        VIN_CODE = #{vinCode,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=VARCHAR}
   </update>
+
   <update id="updateByPrimaryKey" parameterType="com.zzax.mall.domain.Goods">
     update t_goods
     set RECEIPT_ID = #{receiptId,jdbcType=VARCHAR},
@@ -243,7 +259,8 @@
       PRICE = #{price,jdbcType=VARCHAR},
       PRODUCER = #{producer,jdbcType=VARCHAR},
       PRODUCER_AREA = #{producerArea,jdbcType=VARCHAR},
-      PRODUCER_DATE = #{producerDate,jdbcType=TIMESTAMP}
+      PRODUCER_DATE = #{producerDate,jdbcType=TIMESTAMP},
+      VIN_CODE = #{vinCode,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

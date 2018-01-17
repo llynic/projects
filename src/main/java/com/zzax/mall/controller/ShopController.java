@@ -31,20 +31,33 @@ public class ShopController {
     @Autowired
     private GoodsService goodsService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add(Model model) {
-        /*if (!id.equals("-1")) {
+    /*@RequestMapping(value = "/add", method = RequestMethod.GET)
+    public String add() {
+        *//*if (!id.equals("-1")) {
             Receipt receipt = receiptService.selectReceiptById(id);
             Goods goods = goodsService.selectGoodsById(receipt.getId());
             model.addAttribute("receipt",receipt);
             model.addAttribute("goods",goods);
-        }*/
+        }*//*
         return "shop/add";
+    }*/
+
+    @RequestMapping(value = "/addShop/{id}", method = RequestMethod.GET)
+    public String addShop(@PathVariable("id") String id,Model model) {
+        logger.info("{}",id);
+        if (id != null) {
+            Receipt receipt = receiptService.selectReceiptById(id);
+            Goods goods = goodsService.selectGoodsById(receipt.getId());
+            model.addAttribute("receipt",receipt);
+            model.addAttribute("goods",goods);
+        }
+        return "shop/add1";
     }
 
-    @RequestMapping(value = "/addShop", method = RequestMethod.POST)
+
+    @RequestMapping(value = "/selectReceipt", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResult addShop(@RequestParam("id") String id) {
+    public JsonResult selectReceipt(@RequestParam("id") String id) {
         logger.info("{}", id);
         return new JsonResult(true, 0000, "成功");
     }

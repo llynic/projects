@@ -40,7 +40,9 @@ public class Goods implements Serializable {
 
     private Date producerDate;
 
-    public Goods(String id, String receiptId, String name, String kind, String kindCode, String code, String pack, String brand, String model, String mark, String weight, String standards, String quantity, String unit, String price, String producer, String producerArea, Date producerDate) {
+    private String vinCode;
+
+    public Goods(String id, String receiptId, String name, String kind, String kindCode, String code, String pack, String brand, String model, String mark, String weight, String standards, String quantity, String unit, String price, String producer, String producerArea, Date producerDate,String  vinCode) {
         this.id = id;
         this.receiptId = receiptId;
         this.name = name;
@@ -59,6 +61,7 @@ public class Goods implements Serializable {
         this.producer = producer;
         this.producerArea = producerArea;
         this.producerDate = producerDate;
+        this.vinCode = vinCode;
     }
 
     public Goods() {
@@ -197,7 +200,7 @@ public class Goods implements Serializable {
         return producerArea;
     }
 
-    public void setProducerarea(String producerarea) {
+    public void setProducerArea(String producerArea) {
         this.producerArea = producerArea == null ? null : producerArea.trim();
     }
 
@@ -207,6 +210,14 @@ public class Goods implements Serializable {
 
     public void setProducerDate(Date producerDate) {
         this.producerDate = producerDate;
+    }
+
+    public String getVinCode() {
+        return vinCode;
+    }
+
+    public void setVinCode(String vinCode) {
+        this.vinCode = vinCode;
     }
 
     @Override
@@ -230,6 +241,7 @@ public class Goods implements Serializable {
                 ", producer='" + producer + '\'' +
                 ", producerArea='" + producerArea + '\'' +
                 ", producerDate=" + producerDate +
+                ", vinCode=" + vinCode +
                 '}';
     }
 }
