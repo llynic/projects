@@ -48,12 +48,6 @@
                                                 <dt><label style="margin:10px 0 0 0" for="goodsKind">货物类型:</label></dt>
                                                 <dd><input style="width: 70% ;" class="form-control" id="goodsKind" type="text" value="汽车" th:value="${goods.kind}" disabled="disabled"/></dd>
                                             </div>
-                                            <!--<div style=" margin-bottom: 10px;">
-                                                <dt><label style="margin:10px 0 0 0" for="code">货物编号:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsCode"
-                                                           type="text"
-                                                           value="HW000000011221" disabled="disabled"/></dd>
-                                            </div>-->
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsBrand">货物品牌:</label></dt>
                                                 <dd><input style="width: 70% ;" class="form-control" id="goodsBrand" type="text" value="路虎" th:value="${goods.brand}" disabled="disabled"/></dd>
@@ -81,7 +75,7 @@
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="producerDate">生产日期:</label>
                                                 </dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="producerDate" type="text" value="2018-01-01" th:value="${goods.producerDate}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="producerDate" type="text" value="2018-01-01" th:value="${#dates.format(goods.producerDate,'yyyy-MM-dd')}" disabled="disabled"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsQuantity">货物数量:</label>
