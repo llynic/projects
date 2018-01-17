@@ -3,10 +3,12 @@ package com.zzax.mall.controller;
 import com.sun.org.apache.regexp.internal.RE;
 import com.zzax.mall.domain.Goods;
 import com.zzax.mall.domain.Receipt;
+import com.zzax.mall.domain.vin.VinDetail;
 import com.zzax.mall.entity.JsonResult;
 import com.zzax.mall.service.GoodsService;
 import com.zzax.mall.service.ReceiptService;
 import com.zzax.mall.util.StringUtil;
+import com.zzax.mall.util.VinUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +50,9 @@ public class ShopController {
         if (id != null) {
             Receipt receipt = receiptService.selectReceiptById(id);
             Goods goods = goodsService.selectGoodsById(receipt.getId());
+            VinDetail vinDetail = VinUtil.getVinDetailJson(goods.getVinCode());
+            System.out.println(vinDetail.getResult());
+            model.addAttribute("result",vinDetail.getResult());
             model.addAttribute("receipt",receipt);
             model.addAttribute("goods",goods);
         }

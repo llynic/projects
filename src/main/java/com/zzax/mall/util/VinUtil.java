@@ -48,7 +48,7 @@ public class VinUtil {
 
 
     public static void main(String[] args) {
-        VinDetail vinDetail = getVinDetailJson("LSVAL41Z882104202");
+        VinDetail vinDetail = getVinDetailJson("SALWA2VF8FA609929");
         logger.info("{}",vinDetail);
     }
 }

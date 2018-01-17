@@ -14,7 +14,7 @@
         <div style="margin: 0 0 10px 0;">
             <label>请选择仓单:</label>
             <input id="inputReceiptNo" style="width: 200px;display: inline-block" type="text" class="form-control"
-                   value=""/>
+                   value="" th:value="${receipt.code}"/>
         </div>
         <!--信息内容-->
         <div>
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <!--车身信息-->
-                    <div>
+                    <div th:object="${result}">
                         <div class="panel panel-default">
                             <div class="panel-heading" role="tab" id="headingTwo">
                                 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
