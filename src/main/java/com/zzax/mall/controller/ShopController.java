@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping(value = "/shop")
 public class ShopController {
-    public static final Logger logger = LoggerFactory.getLogger(ShopController.class);
+    private static final Logger logger = LoggerFactory.getLogger(ShopController.class);
 
     @Autowired
     private ReceiptService receiptService;
@@ -33,32 +33,24 @@ public class ShopController {
     @Autowired
     private GoodsService goodsService;
 
-    /*@RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String add() {
-        *//*if (!id.equals("-1")) {
+    @RequestMapping(value = "/add/{id}", method = RequestMethod.GET)
+    public String add(@PathVariable("id") String id,Model model) {
+        if (null != id && Integer.valueOf(id) > 0) {
             Receipt receipt = receiptService.selectReceiptById(id);
             Goods goods = goodsService.selectGoodsById(receipt.getId());
-            model.addAttribute("receipt",receipt);
-            model.addAttribute("goods",goods);
-        }*//*
-        return "shop/add";
-    }*/
 
-    @RequestMapping(value = "/addShop/{id}", method = RequestMethod.GET)
-    public String addShop(@PathVariable("id") String id,Model model) {
-        logger.info("{}",id);
-        if (id != null) {
-            Receipt receipt = receiptService.selectReceiptById(id);
-            Goods goods = goodsService.selectGoodsById(receipt.getId());
-            VinDetail vinDetail = VinUtil.getVinDetailJson(goods.getVinCode());
-            System.out.println(vinDetail.getResult());
-            model.addAttribute("result",vinDetail.getResult());
-            model.addAttribute("receipt",receipt);
-            model.addAttribute("goods",goods);
+            logger.info(goods.getVinCode());
+            //VinDetail vinDetail = VinUtil.getVinDetailJson(goods.getVinCode());
+            //logger.info("{}",vinDetail);
+            //model.addAttribute("result", vinDetail.getResult());
+            model.addAttribute("receipt", receipt);
+            model.addAttribute("goods", goods);
+
+            return "shop/add1";
+        } else {
+            return "shop/add";
         }
-        return "shop/add1";
     }
-
 
     @RequestMapping(value = "/selectReceipt", method = RequestMethod.POST)
     @ResponseBody

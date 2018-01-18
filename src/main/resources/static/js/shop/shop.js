@@ -160,8 +160,7 @@ $(function () {
                 success: function (data, textStatus) {
                     //alert('开始回调，状态文本值：'+textStatus+' 返回数据：'+data);
                     $("#loading").empty();
-
-                    window.location.href = "/shop/addShop/" + id;
+                    window.location.href = "/shop/add/" + id;
                 },
                 complete: function (XMLHttpRequest, textStatus) {
                     //alert('远程调用成功，状态文本值：'+textStatus);
@@ -176,6 +175,30 @@ $(function () {
         } else {
             alert("请选择一条仓单")
         }
+    });
+
+    $("#save").click(function () {
+        console.log("save shop");
+    })
+    $("#shelves").click(function () {
+        console.log("shelves shop");
+    })
+
+    $("button[name='image']").on('click', function() {
+        var fd = new FormData();
+        fd.append("upload", 1);
+        fd.append("upfile", $("#upfile").get(0).files[0]);
+
+        /*$.ajax({
+            url: "test.php",
+            type: "POST",
+            processData: false,
+            contentType: false,
+            data: fd,
+            success: function(d) {
+                console.log(d);
+            }
+        });*/
     });
 
 })

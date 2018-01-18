@@ -238,7 +238,7 @@
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="maxSpeed">最高时速(公里/小时):</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="maxSpeed" type="text" value="" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="maxSpeed" type="text" value=""  disabled="disabled"/></dd>
                                             </div>
                                         </div>
                                         <!--右侧信息展示-->
@@ -266,21 +266,28 @@
                             </div>
                             <div id="collapseSix" class="panel-collapse collapse in" role="tabpanel"
                                  aria-labelledby="headingSix">
-                                <div style="height: 100px" class="panel-body">
+                                <div style="height: 200px" class="panel-body">
                                     <div>
-                                        <button style="height: 80px;width: 80px" type="button" class="btn btn-default" aria-label="Left Align">
+                                        <div class="new-contentarea tc">
+                                            <a style="text-decoration:none;" href="javascript:void(0)" class="upload-img">
+                                                <!--<label for="upload-file">上传图像</label></a>-->
+                                            <span for="upload-file" class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                                            <input type="file" class="" name="upload-file" id="upload-file" />
+                                        </div>
+
+                                        <button style="height: 80px;width: 80px" type="button" class="btn btn-default" name="image" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                         </button>
-                                        <button style="height: 80px;width: 80px" type="button" class="btn btn-default" aria-label="Left Align">
+                                        <button style="height: 80px;width: 80px" type="button" class="btn btn-default" name="image" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                         </button>
-                                        <button style="height: 80px;width: 80px" type="button" class="btn btn-default" aria-label="Left Align">
+                                        <button style="height: 80px;width: 80px" type="button" class="btn btn-default" name="image" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                         </button>
-                                        <button style="height: 80px;width: 80px" type="button" class="btn btn-default" aria-label="Left Align">
+                                        <button style="height: 80px;width: 80px" type="button" class="btn btn-default" name="image" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                         </button>
-                                        <button style="height: 80px;width: 80px" type="button" class="btn btn-default" aria-label="Left Align">
+                                        <button style="height: 80px;width: 80px" type="button" class="btn btn-default" name="image" aria-label="Left Align">
                                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                         </button>
                                     </div>
@@ -290,8 +297,8 @@
                     </div>
                 </div>
                 <div style="margin:20px auto 40px;width: 300px;height: 34px;">
-                    <button style="margin-left: 14%;width:60px" class="btn btn-default" type="button" onclick="">保存</button>
-                    <button style="margin-left: 35%;width:60px" class="btn btn-default" type="button" onclick="">上架</button>
+                    <button style="margin-left: 14%;width:60px;" id="save" class="btn btn-default" type="button">保存</button>
+                    <button style="margin-left: 35%;width:60px;" id="shelves" class="btn btn-default" type="button">上架</button>
                 </div>
             </div>
         </div>
@@ -316,6 +323,7 @@
                 </div>
             </div>
         </div>
+
         <script type="text/javascript" th:src="@{/js/shop/shop.js}"></script>
     </div>
 </section>
