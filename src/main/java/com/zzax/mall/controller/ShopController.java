@@ -1,5 +1,6 @@
 package com.zzax.mall.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.sun.org.apache.regexp.internal.RE;
 import com.zzax.mall.domain.Goods;
 import com.zzax.mall.domain.Receipt;
@@ -33,6 +34,12 @@ public class ShopController {
     @Autowired
     private GoodsService goodsService;
 
+    /**
+     * 添加商品
+     * @param id
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/add/{id}", method = RequestMethod.GET)
     public String add(@PathVariable("id") String id,Model model) {
         if (null != id && Integer.valueOf(id) > 0) {
@@ -52,6 +59,11 @@ public class ShopController {
         }
     }
 
+    /**
+     * 添加商品-选择仓单
+     * @param id
+     * @return
+     */
     @RequestMapping(value = "/selectReceipt", method = RequestMethod.POST)
     @ResponseBody
     public JsonResult selectReceipt(@RequestParam("id") String id) {
@@ -59,6 +71,19 @@ public class ShopController {
         return new JsonResult(true, 0000, "成功");
     }
 
+
+    @RequestMapping(value = "/handlerShop",method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResult handlerShop(@RequestBody(required = false) JSONObject json){
+        logger.info("{}",json);
+        return new JsonResult(true, 0000, "成功");
+    }
+
+
+    /**
+     * 查看商品详情
+     * @return
+     */
     @RequestMapping(value = "/detail", method = RequestMethod.GET)
     public String detail() {
         return "shop/detail";

@@ -179,6 +179,23 @@ $(function () {
 
     $("#save").click(function () {
         console.log("save shop");
+        $.ajax({
+            type: "POST",//方法类型
+            dataType: "json",//预期服务器返回的数据类型
+            contentType: 'application/json;charset=UTF-8',
+            url: "/shop/handlerShop" ,//url
+            data: $('#shopInfo').serialize(),
+            success: function (result) {
+                console.log(result);//打印服务端返回的数据(调试用)
+                if (result.errCode == 0000) {
+                    alert("SUCCESS");
+                }
+                ;
+            },
+            error : function() {
+                alert("异常！");
+            }
+        })
     })
     $("#shelves").click(function () {
         console.log("shelves shop");

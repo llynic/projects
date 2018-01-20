@@ -10,15 +10,16 @@
                 <li class="active">添加商品</li>
             </ol>
         </div>
+        <div id="loading"></div>
+        <form id="shopInfo" action="/shop/handlerShop" method="post">
         <!--页面内容-->
         <div style="margin: 0 0 10px 0;">
             <label>请选择仓单:</label>
-            <input id="inputReceiptNo" style="width: 200px;display: inline-block" type="text" class="form-control"
+            <input id="inputReceiptNo" style="width: 200px;display: inline-block" type="text" class="form-control" name="code"
                    value="" th:value="${receipt.code}"/>
         </div>
         <!--信息内容-->
         <div>
-            <div id="loading"></div>
             <div style="display: block">
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     <!--商品基本信息-->
@@ -38,27 +39,27 @@
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="price">商品价格:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="price" type="text" value="125,000,12" th:value="${receipt.price}"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="price" type="text" name="price" value="125,000,12" th:value="${receipt.price}"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsName">商品名称:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsName" type="text" value="路虎SUV新款汽车" th:value="${goods.name}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsName" type="text" name="goodsName" value="路虎SUV新款汽车" th:value="${goods.name}" disabled="disabled"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsKind">货物类型:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsKind" type="text" value="汽车" th:value="${goods.kind}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsKind" type="text" name="goodsKind" value="汽车" th:value="${goods.kind}" disabled="disabled"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsBrand">货物品牌:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsBrand" type="text" value="路虎" th:value="${goods.brand}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsBrand" type="text" name="goodsBrand" value="路虎" th:value="${goods.brand}" disabled="disabled"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsPack">货物包装:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsPack" type="text" value="木箱" th:value="${goods.pack}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsPack" type="text" name="goodsPack" value="木箱" th:value="${goods.pack}" disabled="disabled"/></dd>
                                             </div>
                                             <div>
                                                 <dt><label style="margin:10px 0 0 0" for="goodsModel">货物型号:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsModel" type="text" value="型号" th:value="${goods.model}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsModel" type="text" name="goodsModel" value="型号" th:value="${goods.model}" disabled="disabled"/></dd>
                                             </div>
                                         </div>
                                         <!--右侧信息展示-->
@@ -284,11 +285,12 @@
                     </div>
                 </div>
                 <div style="margin:20px auto 40px;width: 300px;height: 34px;">
-                    <button style="margin-left: 14%;width:60px" class="btn btn-default" type="button" onclick="">保存</button>
-                    <button style="margin-left: 35%;width:60px" class="btn btn-default" type="button" onclick="">上架</button>
+                    <button style="margin-left: 14%;width:60px" class="btn btn-default" type="button" id="save">保存</button>
+                    <button style="margin-left: 35%;width:60px" class="btn btn-default" type="button" id="shelves">上架</button>
                 </div>
             </div>
         </div>
+        </form>
         <div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog"
              aria-labelledby="myModalLabel">
             <div style="width: 50%" class="modal-dialog modal-lg" role="document">
