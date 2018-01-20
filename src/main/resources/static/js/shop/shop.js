@@ -184,21 +184,5 @@ $(function () {
         console.log("shelves shop");
     })
 
-    $("button[name='image']").on('click', function() {
-        var fd = new FormData();
-        fd.append("upload", 1);
-        fd.append("upfile", $("#upfile").get(0).files[0]);
-
-        /*$.ajax({
-            url: "test.php",
-            type: "POST",
-            processData: false,
-            contentType: false,
-            data: fd,
-            success: function(d) {
-                console.log(d);
-            }
-        });*/
-    });
 
 })
