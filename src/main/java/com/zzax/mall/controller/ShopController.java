@@ -5,6 +5,7 @@ import com.sun.org.apache.regexp.internal.RE;
 import com.zzax.mall.domain.Goods;
 import com.zzax.mall.domain.Receipt;
 import com.zzax.mall.domain.Shop;
+import com.zzax.mall.domain.page.PageResult;
 import com.zzax.mall.domain.vin.VinDetail;
 import com.zzax.mall.entity.JsonResult;
 import com.zzax.mall.enums.Result;
@@ -25,6 +26,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -40,11 +42,32 @@ public class ShopController {
 
     @Autowired
     private ReceiptService receiptService;
-
     @Autowired
     private GoodsService goodsService;
     @Autowired
     private ShopService shopService;
+
+
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
+    public String list(PageResult result,Model model){
+        List<Shop> shops = shopService.getShopList(result);
+        model.addAttribute("shops",shops);
+        return "shop/list";
+    }
+
+
+    /**
+     * 我的商品列表
+     * @param result
+     * @return
+     */
+    /*@RequestMapping(value = "/shopList", method = RequestMethod.GET)
+    @ResponseBody
+    public PageResult<Receipt> list(PageResult result) {
+        logger.info("{}", result);
+        return shopService.getList(result);
+    }*/
+
 
     /**
      * 添加商品

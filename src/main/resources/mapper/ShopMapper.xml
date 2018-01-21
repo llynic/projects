@@ -189,4 +189,13 @@
       EDITOR = #{editor,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--根据查询条件返回分页查询条件结果-->
+  <select id="getList" resultMap="BaseResultMap">
+    SELECT <include refid="Base_Column_List" /> FROM t_shop WHERE USER_ID = 1 LIMIT #{start},#{pageSize}
+  </select>
+  <!--查询当前登录的用户名下的商品总数量-->
+  <select id="getCount" resultType="Integer">
+    SELECT COUNT(ID) FROM t_shop WHERE USER_ID = 1
+  </select>
 </mapper>

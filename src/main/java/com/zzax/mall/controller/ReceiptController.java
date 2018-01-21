@@ -32,9 +32,9 @@ public class ReceiptController {
     private GoodsService goodsService;
 
     /**
-     * 我的仓单列表
-     * @param result
-     * @return
+     * 我的仓单信息
+     * @param result 分页对象
+     * @return 分页查询的仓单信息
      */
     @RequestMapping(value = "/receiptList", method = RequestMethod.GET)
     @ResponseBody
