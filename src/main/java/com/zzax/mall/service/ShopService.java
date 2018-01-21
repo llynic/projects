@@ -1,5 +1,7 @@
 package com.zzax.mall.service;
 
+import com.zzax.mall.domain.Goods;
+
 import java.util.List;
 
 /**
@@ -9,4 +11,7 @@ import java.util.List;
  */
 public interface ShopService {
 
+    boolean saveToShop(Goods goods);
+
+    boolean shelveShop(Goods goods);
 }

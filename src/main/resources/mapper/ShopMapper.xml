@@ -32,18 +32,20 @@
     delete from t_shop
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.zzax.mall.domain.Shop">
-    insert into t_shop (ID, RECEIPT_ID, USER_ID, 
+
+  <insert id="insert" parameterType="com.zzax.mall.domain.Shop" useGeneratedKeys="true" keyProperty="id">
+    insert into t_shop (RECEIPT_ID, USER_ID,
       TITLE, CODE, IMAGE, 
       STATUS, PRICE, DES, 
       CREATE_DATE, UPDATE_DATE, CREATOR, 
       EDITOR)
-    values (#{id,jdbcType=INTEGER}, #{receiptId,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+    values (#{receiptId,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER},
       #{title,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
       #{status,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, #{des,jdbcType=VARCHAR}, 
       #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
       #{editor,jdbcType=VARCHAR})
   </insert>
+
   <insert id="insertSelective" parameterType="com.zzax.mall.domain.Shop">
     insert into t_shop
     <trim prefix="(" suffix=")" suffixOverrides=",">

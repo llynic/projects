@@ -17,6 +17,8 @@ public class JsonResult {
         return new JsonResult(result.isSuccess(),result.getErrCode(),result.getMessage());
     }
 
+    public JsonResult() {}
+
     public boolean isSuccess() {
         return success;
     }
@@ -46,4 +48,8 @@ public class JsonResult {
         this.errCode = errCode;
         this.message = message;
     }
+
+
+
+
 }

@@ -1,7 +1,11 @@
 package com.zzax.mall.mapper;
 
 import com.zzax.mall.domain.ShopAttribute;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
+@Mapper
+@Component
 public interface ShopAttributeMapper {
     int deleteByPrimaryKey(Integer id);
 

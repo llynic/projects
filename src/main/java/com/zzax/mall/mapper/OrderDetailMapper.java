@@ -1,7 +1,11 @@
 package com.zzax.mall.mapper;
 
 import com.zzax.mall.domain.OrderDetail;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
+@Mapper
+@Component
 public interface OrderDetailMapper {
     int deleteByPrimaryKey(Integer id);
 

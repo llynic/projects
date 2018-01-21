@@ -27,17 +27,15 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public Result login(User user) {
         logger.info("{}", user);
-        if (StringUtil.isEmpty(user.getUsername())) {
-            return Result.USERNAME_NULL;
-        } else if (StringUtil.isEmpty(user.getPassword())) {
-            return Result.PASSWORD_NULL;
+        if (StringUtil.isEmpty(user.getUsername()) || StringUtil.isEmpty(user.getPassword()) ) {
+            return Result.UsernameOrPasswordIsError;
         }
 
         if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
             SessionUtil.setUserInSession(user);
-            return Result.LOGIN_SUCCESS;
+            return Result.SUCCESS;
         } else {
-            return Result.LOGIN_FAILURE;
+            return Result.UsernameOrPasswordIsError;
         }
     }
 }

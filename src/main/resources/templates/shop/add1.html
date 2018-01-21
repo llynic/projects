@@ -15,7 +15,8 @@
         <!--页面内容-->
         <div style="margin: 0 0 10px 0;">
             <label>请选择仓单:</label>
-            <input id="inputReceiptNo" style="width: 200px;display: inline-block" type="text" class="form-control" name="code"
+            <input id="inputReceiptNo" style="width: 200px;display: inline-block" type="text" class="form-control" name="receiptCode"
+
                    value="" th:value="${receipt.code}"/>
         </div>
         <!--信息内容-->
@@ -39,58 +40,61 @@
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="price">商品价格:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="price" type="text" name="price" value="125,000,12" th:value="${receipt.price}"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="price" type="text" name="price" value="125,000,12" th:value="${receipt.price}" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsName">商品名称:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsName" type="text" name="goodsName" value="路虎SUV新款汽车" th:value="${goods.name}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsName" type="text" name="name" value="路虎SUV新款汽车" th:value="${goods.name}" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsKind">货物类型:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsKind" type="text" name="goodsKind" value="汽车" th:value="${goods.kind}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsKind" type="text" name="kind" value="汽车" th:value="${goods.kind}" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsBrand">货物品牌:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsBrand" type="text" name="goodsBrand" value="路虎" th:value="${goods.brand}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsBrand" type="text" name="brand" value="路虎" th:value="${goods.brand}" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsPack">货物包装:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsPack" type="text" name="goodsPack" value="木箱" th:value="${goods.pack}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsPack" type="text" name="pack" value="木箱" th:value="${goods.pack}" readonly="readonly"/></dd>
                                             </div>
                                             <div>
                                                 <dt><label style="margin:10px 0 0 0" for="goodsModel">货物型号:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsModel" type="text" name="goodsModel" value="型号" th:value="${goods.model}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsModel" type="text" name="model" value="型号" th:value="${goods.model}" readonly="readonly"/></dd>
                                             </div>
                                         </div>
                                         <!--右侧信息展示-->
                                         <div style="margin-top: -253px;width: 50%;float: right;left:46%;bottom:15px">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="producer">生产厂家:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="producer" type="text" value="路虎汽车公司" th:value="${goods.producer}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="producer" type="text" name="producer" value="路虎汽车公司" th:value="${goods.producer}" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="producerArea">产地:</label>
                                                 </dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="producerArea" type="text" value="中国河南" th:value="${goods.producerArea}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="producerArea" type="text" name="producerArea" value="中国河南" th:value="${goods.producerArea}" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="producerDate">生产日期:</label>
                                                 </dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="producerDate" type="text" value="2018-01-01" th:value="${#dates.format(goods.producerDate,'yyyy-MM-dd')}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="producerDate" type="text" name="producerDate" value="2018-01-01" th:value="${#dates.format(goods.producerDate,'yyyy-MM-dd')}" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsQuantity">货物数量:</label>
                                                 </dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsQuantity" type="text" value="1" th:value="${goods.quantity}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsQuantity" type="text" name="quantity" value="1" th:value="${goods.quantity}" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="goodsUnit">货物单位:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsUnit" type="text" value="辆" th:value="${goods.unit}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsUnit" type="text" name="unit" value="辆" th:value="${goods.unit}" readonly="readonly"/></dd>
                                             </div>
                                             <div>
                                                 <dt><label style="margin:10px 0 0 0" for="goodsWeight">货物重量(吨):</label>
                                                 </dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="goodsWeight" type="text" value="1.2" th:value="${goods.weight}" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="goodsWeight" type="text" name="weight" value="1.2" th:value="${goods.weight}" readonly="readonly"/></dd>
+                                                <input type="hidden" value="" name="id" th:value="${goods.id}"/>
+                                                <input type="hidden" value="" name="receiptId" th:value="${goods.receiptId}"/>
+                                                <input type="hidden" value="" name="vinCode" th:value="${goods.vinCode}"/>
                                             </div>
                                         </div>
                                     </dl>
@@ -115,14 +119,14 @@
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="carLength">车身总长度:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="carLength" type="text" value="5,000" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="carLength" type="text" value="5,000" readonly="readonly"/></dd>
                                             </div>
                                         </div>
                                         <!--右侧信息展示-->
                                         <div style="margin-top: -44px;width: 50%;float: right;left:46%;bottom:15px">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="wheelBase">轴距:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="wheelBase" type="text" value="2,922" disabled="disabled"/>
+                                                <dd><input style="width: 70% ;" class="form-control" id="wheelBase" type="text" value="2,922" readonly="readonly"/>
                                                 </dd>
                                             </div>
                                         </div>
@@ -148,27 +152,27 @@
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="carHeight">高度:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="carHeight" type="text" value="1,861" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="carHeight" type="text" value="1,861" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="frontWheelTrack">前轮轮距(mm):</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="frontWheelTrack" type="text" value="1,692" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="frontWheelTrack" type="text" value="1,692" readonly="readonly"/></dd>
                                             </div>
 
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="rearWheelTrack">后轮轮距(mm):</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="rearWheelTrack" type="text" value="1,685" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="rearWheelTrack" type="text" value="1,685" readonly="readonly"/></dd>
                                             </div>
                                         </div>
                                         <!--右侧信息展示-->
                                         <div style="margin-top: -132px;width: 50%;float: right;left:46%;bottom:15px">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="widthFold">宽度 - 外后视镜折叠(mm)</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="widthFold" type="text" value="2,073" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="widthFold" type="text" value="2,073" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="widthUnFold">宽度 - 外后视镜展开(mm):</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="widthUnFold" type="text" value="2,220" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="widthUnFold" type="text" value="2,220" readonly="readonly"/></dd>
                                             </div>
                                         </div>
                                     </dl>
@@ -193,22 +197,22 @@
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="engineModel">型号:</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="engineModel" type="text" value="3.0L V6 机械增压汽油发动机 (340PS)" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="engineModel" type="text" value="3.0L V6 机械增压汽油发动机 (340PS)" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="maxPower">最大功率(PS):</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="maxPower" type="text" value="340" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="maxPower" type="text" value="340" readonly="readonly"/></dd>
                                             </div>
                                         </div>
                                         <!--右侧信息展示-->
                                         <div style="margin-top: -88px;width: 50%;float: right;left:46%;bottom:15px">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="displacement">排量(cc):</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="displacement" type="text" value="2,995" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="displacement" type="text" value="2,995" readonly="readonly"/></dd>
                                             </div>
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="maxTorque">最大扭矩(Nm):</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="maxTorque" type="text" value="450" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="maxTorque" type="text" value="450" readonly="readonly"/></dd>
                                             </div>
                                         </div>
                                     </dl>
@@ -233,14 +237,14 @@
                                         <div style="width: 50%;margin-left: -25px;position:relative;">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt><label style="margin:10px 0 0 0" for="maxSpeed">最高时速(公里/小时):</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="maxSpeed" type="text" value="209" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="maxSpeed" type="text" value="209" readonly="readonly"/></dd>
                                             </div>
                                         </div>
                                         <!--右侧信息展示-->
                                         <div style="margin-top: -44px;width: 50%;float: right;left:46%;bottom:15px">
                                             <div style=" margin-bottom: 10px;">
                                                 <dt style="width: 173px;padding-right: 10px"><label style="margin:10px 0 0 0" for="acceleration">0-100公里/小时加速时间(秒):</label></dt>
-                                                <dd><input style="width: 70% ;" class="form-control" id="acceleration" type="text" value="7.4" disabled="disabled"/></dd>
+                                                <dd><input style="width: 70% ;" class="form-control" id="acceleration" type="text" value="7.4" readonly="readonly"/></dd>
                                             </div>
                                         </div>
                                     </dl>

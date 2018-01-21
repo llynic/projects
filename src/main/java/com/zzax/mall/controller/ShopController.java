@@ -4,10 +4,14 @@ import com.alibaba.fastjson.JSONObject;
 import com.sun.org.apache.regexp.internal.RE;
 import com.zzax.mall.domain.Goods;
 import com.zzax.mall.domain.Receipt;
+import com.zzax.mall.domain.Shop;
 import com.zzax.mall.domain.vin.VinDetail;
 import com.zzax.mall.entity.JsonResult;
+import com.zzax.mall.enums.Result;
 import com.zzax.mall.service.GoodsService;
 import com.zzax.mall.service.ReceiptService;
+import com.zzax.mall.service.ShopService;
+import com.zzax.mall.util.CodeUtil;
 import com.zzax.mall.util.StringUtil;
 import com.zzax.mall.util.VinUtil;
 import org.slf4j.Logger;
@@ -16,6 +20,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Date;
+import java.util.Enumeration;
+import java.util.Map;
 
 /**
  * @Description 我的商品模块
@@ -33,15 +43,18 @@ public class ShopController {
 
     @Autowired
     private GoodsService goodsService;
+    @Autowired
+    private ShopService shopService;
 
     /**
      * 添加商品
+     *
      * @param id
      * @param model
      * @return
      */
     @RequestMapping(value = "/add/{id}", method = RequestMethod.GET)
-    public String add(@PathVariable("id") String id,Model model) {
+    public String add(@PathVariable("id") String id, Model model) {
         if (null != id && Integer.valueOf(id) > 0) {
             Receipt receipt = receiptService.selectReceiptById(id);
             Goods goods = goodsService.selectGoodsById(receipt.getId());
@@ -61,6 +74,7 @@ public class ShopController {
 
     /**
      * 添加商品-选择仓单
+     *
      * @param id
      * @return
      */
@@ -71,17 +85,42 @@ public class ShopController {
         return new JsonResult(true, 0000, "成功");
     }
 
-
-    @RequestMapping(value = "/handlerShop",method = RequestMethod.POST)
+    /**
+     * 保存商品(未上架)
+     * @param goods
+     * @return
+     */
+    @RequestMapping(value = "/saveShop", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResult handlerShop(@RequestBody(required = false) JSONObject json){
-        logger.info("{}",json);
-        return new JsonResult(true, 0000, "成功");
+    public JsonResult saveShop(Goods goods) {
+        boolean ret = shopService.saveToShop(goods);
+        if (ret) {
+            return JsonResult.parse(Result.SUCCESS);
+        } else {
+            return JsonResult.parse(Result.FAILURE);
+        }
+    }
+
+    /**
+     * 直接上架商品
+     * @param goods
+     * @return
+     */
+    @RequestMapping(value = "/shelveShop", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResult shelveShop(Goods goods) {
+        boolean ret = shopService.shelveShop(goods);
+        if (ret) {
+            return JsonResult.parse(Result.SUCCESS);
+        } else {
+            return JsonResult.parse(Result.FAILURE);
+        }
     }
 
 
     /**
      * 查看商品详情
+     *
      * @return
      */
     @RequestMapping(value = "/detail", method = RequestMethod.GET)

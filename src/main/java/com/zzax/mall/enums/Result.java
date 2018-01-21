@@ -6,10 +6,11 @@ package com.zzax.mall.enums;
  * @DATE 2017-12-22 15:32 星期五
  */
 public enum Result {
-    LOGIN_SUCCESS(true,0000,"登陆成功"),
-    LOGIN_FAILURE(false,1000,"用户名或者密码错误,请确认后重新输入"),
-    USERNAME_NULL(false,1001,"请输入用户名"),
-    PASSWORD_NULL(false,1002,"请输入密码");
+    SUCCESS(true,000000,"成功"),
+    FAILURE(false,999999,"失败"),
+    UsernameOrPasswordIsError(false,001001,"用户名或者密码错误,请确认后重新输入"),
+    UsernameError(false,001002,"请输入用户名"),
+    PasswordError(false,001003,"请输入密码");
 
     private boolean success = false;
     private Integer errCode = 0;

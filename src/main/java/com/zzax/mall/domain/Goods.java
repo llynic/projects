@@ -1,5 +1,7 @@
 package com.zzax.mall.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -38,6 +40,7 @@ public class Goods implements Serializable {
 
     private String producerArea;
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date producerDate;
 
     private String vinCode;
@@ -208,6 +211,7 @@ public class Goods implements Serializable {
         return producerDate;
     }
 
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     public void setProducerDate(Date producerDate) {
         this.producerDate = producerDate;
     }
