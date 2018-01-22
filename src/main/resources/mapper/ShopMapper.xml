@@ -11,6 +11,7 @@
       <arg column="IMAGE" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="STATUS" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="PRICE" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="QUANTITY" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="DES" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="CREATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="UPDATE_DATE" javaType="java.util.Date" jdbcType="TIMESTAMP" />
@@ -19,7 +20,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    ID, RECEIPT_ID, USER_ID, TITLE, CODE, IMAGE, STATUS, PRICE, DES, CREATE_DATE, UPDATE_DATE, 
+    ID, RECEIPT_ID, USER_ID, TITLE, CODE, IMAGE, STATUS, PRICE, QUANTITY, DES, CREATE_DATE, UPDATE_DATE,
     CREATOR, EDITOR
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -36,12 +37,12 @@
   <insert id="insert" parameterType="com.zzax.mall.domain.Shop" useGeneratedKeys="true" keyProperty="id">
     insert into t_shop (RECEIPT_ID, USER_ID,
       TITLE, CODE, IMAGE, 
-      STATUS, PRICE, DES, 
+      STATUS, PRICE, QUANTITY, DES,
       CREATE_DATE, UPDATE_DATE, CREATOR, 
       EDITOR)
     values (#{receiptId,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER},
       #{title,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
-      #{status,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, #{des,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, #{quantity,jdbcType=VARCHAR},#{des,jdbcType=VARCHAR},
       #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{creator,jdbcType=VARCHAR}, 
       #{editor,jdbcType=VARCHAR})
   </insert>
@@ -72,6 +73,9 @@
       </if>
       <if test="price != null">
         PRICE,
+      </if>
+      <if test="quantity != null">
+        quantity,
       </if>
       <if test="des != null">
         DES,
@@ -114,6 +118,9 @@
       <if test="price != null">
         #{price,jdbcType=VARCHAR},
       </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=VARCHAR},
+      </if>
       <if test="des != null">
         #{des,jdbcType=VARCHAR},
       </if>
@@ -155,6 +162,9 @@
       <if test="price != null">
         PRICE = #{price,jdbcType=VARCHAR},
       </if>
+      <if test="quantity != null">
+        QUANTITY = #{quantity,jdbcType=VARCHAR},
+      </if>
       <if test="des != null">
         DES = #{des,jdbcType=VARCHAR},
       </if>
@@ -182,6 +192,7 @@
       IMAGE = #{image,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
       PRICE = #{price,jdbcType=VARCHAR},
+      QUANTITY = #{quantity,jdbcType=VARCHAR},
       DES = #{des,jdbcType=VARCHAR},
       CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
       UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},

@@ -19,6 +19,8 @@ public class Shop {
 
     private String price;
 
+    private String quantity;
+
     private String des;
 
     private Date createDate;
@@ -29,7 +31,7 @@ public class Shop {
 
     private String editor;
 
-    public Shop(Integer id, String receiptId, Integer userId, String title, String code, String image, String status, String price, String des, Date createDate, Date updateDate, String creator, String editor) {
+    public Shop(Integer id, String receiptId, Integer userId, String title, String code, String image, String status, String price, String quantity, String des, Date createDate, Date updateDate, String creator, String editor) {
         this.id = id;
         this.receiptId = receiptId;
         this.userId = userId;
@@ -38,6 +40,7 @@ public class Shop {
         this.image = image;
         this.status = status;
         this.price = price;
+        this.quantity = quantity;
         this.des = des;
         this.createDate = createDate;
         this.updateDate = updateDate;
@@ -113,6 +116,14 @@ public class Shop {
         this.price = price == null ? null : price.trim();
     }
 
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
     public String getDes() {
         return des;
     }
@@ -151,5 +162,25 @@ public class Shop {
 
     public void setEditor(String editor) {
         this.editor = editor == null ? null : editor.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Shop{" +
+                "id=" + id +
+                ", receiptId='" + receiptId + '\'' +
+                ", userId=" + userId +
+                ", title='" + title + '\'' +
+                ", code='" + code + '\'' +
+                ", image='" + image + '\'' +
+                ", status='" + status + '\'' +
+                ", price='" + price + '\'' +
+                ", quantity='" + quantity + '\'' +
+                ", des='" + des + '\'' +
+                ", createDate=" + createDate +
+                ", updateDate=" + updateDate +
+                ", creator='" + creator + '\'' +
+                ", editor='" + editor + '\'' +
+                '}';
     }
 }

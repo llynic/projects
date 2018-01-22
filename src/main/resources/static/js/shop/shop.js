@@ -1,68 +1,4 @@
 $(function () {
-
-    /*$('#table').bootstrapTable({
-        method: "get",
-        //toolbar: "#toolbar", //工具栏
-        cache: false,
-        sortable: true,
-        uniqueId: "id",
-        //sortName: "id",
-        //sortOrder: "asc",
-        sortStable: true,
-        pagination: true,
-        pageNumber: 1,
-        pageSize: 10,
-        pageList: [5, 10, 15, 20],
-        selectItemName: 'id',
-        smartDisplay: true,
-        showRefresh: true,
-        //paginationPreText: '',
-        //paginationNextText: '',
-        singleSelect: true,
-        checkboxHeader: true,
-        url: '/receipt/receiptList',
-        queryParamsType: '',    //不填的话,则只传pageNumber 和pageSize 两个字段
-        sidePagination: 'server', //服务端分页
-        strictSearch: false,
-        searchText: '', //
-        minimumCountColumns: 2,
-        clickToSelect: true,
-        search: true,
-        searchAlign: 'left',
-        queryParams: queryParams,
-        columns: [
-            {
-                radio: true
-            }, {
-                title: 'ID',
-                field: 'id',
-                visible: false
-            }, {
-                title: '序号',
-                field: 'number',
-                formatter: function (value, row, index) {
-                    //return index + 1;
-                    var pageSize = $('#table').bootstrapTable('getOptions').pageSize;//通过表的#id 可以得到每页多少条
-                    var pageNumber = $('#table').bootstrapTable('getOptions').pageNumber;//通过表的#id 可以得到当前第几页
-                    return pageSize * (pageNumber - 1) + index + 1;    //返回每条的序号： 每页条数 * （当前页 - 1 ）+ 序号
-                },
-                align: 'center'
-            }, {
-                field: 'code',
-                title: '仓单号',
-                align: 'center'
-            }, {
-                field: 'price',
-                title: '价格',
-                align: 'center'
-            }, {
-                field: 'depotAddress',
-                title: '仓储名称',
-                align: 'center'
-            }]
-    })*/
-
-
     function queryParams(params) {
         var temp = {
             //minPrice: $('#minPrice').val(),
@@ -73,7 +9,6 @@ $(function () {
         };
         return temp;
     }
-
 
     $("#inputReceiptNo").focus(function () {
         $('#table').bootstrapTable({
@@ -214,6 +149,4 @@ $(function () {
             }
         })
     })
-
-
 })

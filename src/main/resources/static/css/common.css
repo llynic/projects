@@ -39,11 +39,11 @@ a {
 }
 a,button{cursor:pointer;} 
 
-body {
+/*body {
 	background: #f4f4f4;
 	font-size: 14px;
 	font-family: "微软雅黑", "PingFang SC", "arial, helvetica, sans-serif";
-}
+}*/
 .clear {
 	clear: both;
 }
