@@ -47,7 +47,11 @@ public class ShopController {
     @Autowired
     private ShopService shopService;
 
-
+    /**
+     * 我的商品列表
+     * @param result
+     * @return
+     */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String list(PageResult result,Model model){
         List<Shop> shops = shopService.getShopList(result);
@@ -55,24 +59,23 @@ public class ShopController {
         return "shop/list";
     }
 
-
     /**
-     * 我的商品列表
-     * @param result
+     * 添加商品-选择仓单
+     * @param id - 转换成商品的仓单id
      * @return
      */
-    /*@RequestMapping(value = "/shopList", method = RequestMethod.GET)
+    @RequestMapping(value = "/selectReceipt", method = RequestMethod.POST)
     @ResponseBody
-    public PageResult<Receipt> list(PageResult result) {
-        logger.info("{}", result);
-        return shopService.getList(result);
-    }*/
+    public JsonResult selectReceipt(@RequestParam("id") String id) {
+        logger.info("{}", id);
+        return new JsonResult(true, 0000, "成功");
+    }
 
 
     /**
      * 添加商品
      *
-     * @param id
+     * @param id - 转换成商品的仓单id
      * @param model
      * @return
      */
@@ -88,7 +91,6 @@ public class ShopController {
             //model.addAttribute("result", vinDetail.getResult());
             model.addAttribute("receipt", receipt);
             model.addAttribute("goods", goods);
-
             return "shop/add1";
         } else {
             return "shop/add";
@@ -96,16 +98,17 @@ public class ShopController {
     }
 
     /**
-     * 添加商品-选择仓单
-     *
-     * @param id
+     * 更新商品状态
+     * 商品上架:由保存状态改为上架状态
+     * @param id - 商品id
      * @return
      */
-    @RequestMapping(value = "/selectReceipt", method = RequestMethod.POST)
+    @RequestMapping(value = "/shelf", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResult selectReceipt(@RequestParam("id") String id) {
+    public JsonResult shelf(@RequestParam("id") Integer id) {
         logger.info("{}", id);
-        return new JsonResult(true, 0000, "成功");
+        Shop shop = shopService.shelfShop(id);
+        return new JsonResult(true, 0000, "成功",shop);
     }
 
     /**

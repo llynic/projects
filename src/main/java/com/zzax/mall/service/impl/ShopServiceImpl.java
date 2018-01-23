@@ -101,4 +101,12 @@ public class ShopServiceImpl implements ShopService {
         }
         return list;
     }
+
+    @Override
+    public Shop shelfShop(Integer id) {
+        Shop shop = shopMapper.selectByPrimaryKey(id);
+        shop.setStatus("1");
+        shopMapper.updateByPrimaryKey(shop);
+        return shop;
+    }
 }

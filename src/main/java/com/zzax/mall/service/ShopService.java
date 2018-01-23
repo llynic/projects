@@ -31,4 +31,10 @@ public interface ShopService {
      */
     List<Shop> getShopList(PageResult result);
 
+    /**
+     * 更新某个商品的状态
+     * @param id
+     * @return
+     */
+    Shop shelfShop(Integer id);
 }

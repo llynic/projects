@@ -51,6 +51,7 @@
                             <th class="col-lg-4" style="height: 36px;">
                                 <label style="margin: 0px 10px 0px -11px;" th:text="${#dates.format(shop.createDate,'yyyy-MM-dd')}">商品创建日期</label>
                                 <strong>商品编号:<span th:text="${shop.code}"> 商品编号</span></strong>
+                                <input type="hidden" value="" th:value="${shop.id}"/>
                             </th>
                         </tr>
                         </tbody>
@@ -84,7 +85,7 @@
                             </td>
                             <td class="col-lg-1" style="text-align: center">
                                 <div>
-                                    <a href="javascript:void(0);" onclick="shelf()"><p th:if="${shop.status == '0'}">上架</p></a>
+                                    <a href="javascript:void(0);" th:onclick="'javascript:shelf(\''+${shop.id}+'\');'"><p th:if="${shop.status == '0'}">上架</p></a>
                                     <a href="javascript:void(0);"><p th:if="${shop.status == '1'}">下架</p></a>
                                 </div>
                             </td>
@@ -120,10 +121,16 @@
             </div>
         </tr>
     </div>
+    <aside class="mask works-mask">
+        <div class="mask-content">
+            <p class="del-p">您确定上架此商品吗？</p>
+            <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+        </div>
+    </aside>
 
-    <div class="modal fade bs-example-modal-sm" id="alert-shelf" tabindex="-1" role="dialog"
+    <!--<div class="modal fade bs-example-modal-sm" id="alert-shelf" tabindex="-1" role="dialog"
          aria-labelledby="myModalLabel">
-        <div style="width: 50%" class="modal-dialog modal-sm" role="document">
+        <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -139,13 +146,41 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <script type="text/javascript" th:src="@{/js/shop/list.js}"></script>
-
     <script type="text/javascript">
-        function shelf() {
-            $("#alert-shelf").modal("show");
+        var id;
+        function shelf(obj) {
+            $(".works-mask").show();
+            id = obj;
         }
+
+        $(".wsdel-ok").click(function(){
+            $(".works-mask").hide();
+
+            $.ajax({
+                url:'/shop/shelf',
+                type:'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                dataType: 'json',
+                data: {
+                    "id":id
+                },
+                success:function (result) {
+                    window.location.href="/shop/list";
+                    console.log(result.data);
+                    alert("商品上架成功");
+
+                },
+                error : function() {
+                    alert("商品上架失败");
+                }
+            })
+        });
+
+        $(".wsdel-no").click(function(){
+            $(".works-mask").hide();
+        });
     </script>
 </section>
 </body>

@@ -12,6 +12,7 @@ public class JsonResult {
     private boolean success;
     private Integer errCode;
     private String message;
+    private Object data;
 
     public static JsonResult parse(Result result){
         return new JsonResult(result.isSuccess(),result.getErrCode(),result.getMessage());
@@ -43,12 +44,26 @@ public class JsonResult {
         this.message = message;
     }
 
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+
+    public JsonResult(boolean success, Integer errCode, String message,Object data) {
+        this.success = success;
+        this.errCode = errCode;
+        this.message = message;
+        this.data = data;
+    }
+
     public JsonResult(boolean success, Integer errCode, String message) {
         this.success = success;
         this.errCode = errCode;
         this.message = message;
     }
-
 
 
 
