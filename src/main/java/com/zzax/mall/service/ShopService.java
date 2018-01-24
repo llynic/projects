@@ -14,7 +14,13 @@ import java.util.List;
  */
 public interface ShopService {
 
+    /**
+     * 把仓单转换/保存成商品
+     * @param goods
+     * @return
+     */
     boolean saveToShop(Goods goods);
+
 
     boolean shelveShop(Goods goods);
 
@@ -32,9 +38,23 @@ public interface ShopService {
     List<Shop> getShopList(PageResult result);
 
     /**
-     * 更新某个商品的状态
+     * 商品上架
      * @param id
      * @return
      */
     Shop shelfShop(Integer id);
+
+    /**
+     * 商品下架
+     * @param id
+     * @return
+     */
+    Shop unShelfShop(Integer id);
+
+    /**
+     * 根据id 查询商品
+     * @param id
+     * @return
+     */
+    Shop getShopById(Integer id);
 }

@@ -11,6 +11,7 @@ public class QueryParam<T> implements Serializable {
 
     private String sortOrder = "ASC";
     private String searchText = "";
+    private String status = "";
 
     public QueryParam() {
     }
@@ -31,11 +32,20 @@ public class QueryParam<T> implements Serializable {
         this.searchText = searchText;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
         return "QueryParam{" +
                 "sortOrder='" + sortOrder + '\'' +
                 ", searchText='" + searchText + '\'' +
+                ", status=" + status +
                 '}';
     }
 }

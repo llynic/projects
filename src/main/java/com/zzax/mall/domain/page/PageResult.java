@@ -69,6 +69,7 @@ public class PageResult<T> extends QueryParam {
                 ", rows=" + rows +
                 ",sortOrder=" + super.getSortOrder() +
                 ",searchText=" + super.getSearchText() +
+                ",status=" + super.getStatus() +
                 '}';
     }
 }

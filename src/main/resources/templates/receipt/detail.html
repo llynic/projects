@@ -139,7 +139,7 @@
                         </div>
                         <div style=" margin-bottom: 10px;">
                             <dt><label style="margin:10px 0 0 0 " for="productionDate">生产日期:</label></dt>
-                            <dd><input class="form-control" id="productionDate" type="text" value="2018-01-01" th:value="${goods.producerDate}" disabled="disabled"/></dd>
+                            <dd><input class="form-control" id="productionDate" type="text" value="2018-01-01" th:value="${#dates.format(goods.producerDate,'yyyy-MM-dd')}" disabled="disabled"/></dd>
                         </div>
                         <div style=" margin-bottom: 10px;">
                             <dt><label style="margin:10px 0 0 0 " for="goodsQuantity">货物数量:</label></dt>

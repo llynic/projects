@@ -49,7 +49,8 @@
                         <tbody style="background-color: #f5f5f5;">
                         <tr>
                             <th class="col-lg-4" style="height: 36px;">
-                                <label style="margin: 0px 10px 0px -11px;" th:text="${#dates.format(shop.createDate,'yyyy-MM-dd')}">商品创建日期</label>
+                                <label style="margin: 0px 10px 0px -11px;"
+                                       th:text="${#dates.format(shop.createDate,'yyyy-MM-dd')}">商品创建日期</label>
                                 <strong>商品编号:<span th:text="${shop.code}"> 商品编号</span></strong>
                                 <input type="hidden" value="" th:value="${shop.id}"/>
                             </th>
@@ -85,8 +86,11 @@
                             </td>
                             <td class="col-lg-1" style="text-align: center">
                                 <div>
-                                    <a href="javascript:void(0);" th:onclick="'javascript:shelf(\''+${shop.id}+'\');'"><p th:if="${shop.status == '0'}">上架</p></a>
-                                    <a href="javascript:void(0);"><p th:if="${shop.status == '1'}">下架</p></a>
+                                    <a href="javascript:void(0);" th:onclick="'javascript:shelf(\''+${shop.id}+'\');'">
+                                        <p th:if="${shop.status == '0'}">上架</p></a>
+                                    <a href="javascript:void(0);"
+                                       th:onclick="'javascript:unShelf(\''+${shop.id}+'\');'"><p
+                                            th:if="${shop.status == '1'}">下架</p></a>
                                 </div>
                             </td>
                             <td class="col-lg-1" style="text-align: center">
@@ -102,7 +106,7 @@
                                     <p th:if="${shop.status == '1'}">已上架</p>
                                     <p th:if="${shop.status == '2'}">交易中</p>
                                     <div style="margin-top: 5px">
-                                        <a href="#" th:href="@{/shop/detail}">
+                                        <a href="#" th:href="@{'/shop/detail/'+ ${shop.id}}">
                                             <p>商品详情</p>
                                         </a>
                                     </div>
@@ -121,10 +125,22 @@
             </div>
         </tr>
     </div>
-    <aside class="mask works-mask">
+    <aside id="on" class="mask works-mask">
         <div class="mask-content">
             <p class="del-p">您确定上架此商品吗？</p>
-            <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no">取消</span></p>
+            <p class="check-p">
+                <span class="del-com wsdel-ok">确定</span>
+                <span class="wsdel-no">取消</span>
+            </p>
+        </div>
+    </aside>
+    <aside id="off" class="mask works-mask">
+        <div class="mask-content">
+            <p class="del-p">您确定下架此商品吗？</p>
+            <p class="check-p">
+                <span class="del-com wsdel-ok">确定</span>
+                <span class="wsdel-no">取消</span>
+            </p>
         </div>
     </aside>
 
@@ -150,35 +166,56 @@
     <script type="text/javascript" th:src="@{/js/shop/list.js}"></script>
     <script type="text/javascript">
         var id;
+
         function shelf(obj) {
-            $(".works-mask").show();
+            $("#on").show();
             id = obj;
         }
 
-        $(".wsdel-ok").click(function(){
-            $(".works-mask").hide();
+        function unShelf(obj) {
+            $("#off").show();
+            id = obj;
+        }
 
+        $("#on .wsdel-ok").click(function () {
+            $(".works-mask").hide();
             $.ajax({
-                url:'/shop/shelf',
-                type:'POST',
+                url: '/shop/shelf',
+                type: 'POST',
                 contentType: 'application/x-www-form-urlencoded',
                 dataType: 'json',
                 data: {
-                    "id":id
+                    "id": id
                 },
-                success:function (result) {
-                    window.location.href="/shop/list";
-                    console.log(result.data);
-                    alert("商品上架成功");
-
+                success: function (result) {
+                    window.location.href = "/shop/list";
                 },
-                error : function() {
+                error: function () {
                     alert("商品上架失败");
                 }
             })
         });
 
-        $(".wsdel-no").click(function(){
+        $("#off .wsdel-ok").click(function () {
+            $(".works-mask").hide();
+            $.ajax({
+                url: '/shop/unShelf',
+                type: 'POST',
+                contentType: 'application/x-www-form-urlencoded',
+                dataType: 'json',
+                data: {
+                    "id": id
+                },
+                success: function (result) {
+                    window.location.href = "/shop/list";
+                },
+                error: function () {
+                    alert("商品下架失败");
+                }
+            })
+        });
+
+        $(".wsdel-no").click(function () {
             $(".works-mask").hide();
         });
     </script>

@@ -16,53 +16,60 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     font-family: inherit;
     /*vertical-align: baseline;*/
 }
+
 /*图片上传*/
 new-contentarea {
     width: 100%;
-    overflow:hidden;
+    overflow: hidden;
     margin: 0 auto;
-    position:relative;
+    position: relative;
 }
+
 .new-contentarea label {
-    width:100%;
-    height:100%;
-    display:block;
+    width: 100%;
+    height: 100%;
+    display: block;
 }
+
 .new-contentarea input[type=file] {
-    width:188px;
-    height:60px;
-    background:#333;
+    width: 188px;
+    height: 60px;
+    background: #333;
     margin: 0 auto;
-    position:absolute;
-    right:50%;
-    margin-right:-94px;
-    top:0;
-    right/*\**/:0px\9;
-    margin-right/*\**/:0px\9;
-    width/*\**/:10px\9;
-    opacity:0;
-    filter:alpha(opacity=0);
-    z-index:2;
+    position: absolute;
+    right: 50%;
+    margin-right: -94px;
+    top: 0;
+    right /*\**/: 0px \9;
+    margin-right /*\**/: 0px \9;
+    width /*\**/: 10px \9;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    z-index: 2;
 }
-a.upload-img{
-    width:80px;
+
+a.upload-img {
+    width: 80px;
     display: inline-block;
     margin-bottom: 10px;
-    height:80px;
+    height: 80px;
     line-height: 57px;
     font-size: 14px;
     color: #FFFFFF;
     background-color: #ffffff;
     border-radius: 3px;
-    text-decoration:none;
-    cursor:pointer;
+    text-decoration: none;
+    cursor: pointer;
     border: 1px solid #c5c5c5;
 }
-a.upload-img:hover{
+
+a.upload-img:hover {
     background-color: #c5c5c5;
 }
 
-.tc{text-align:center;}
+.tc {
+    text-align: center;
+}
 
 /* remember to define focus styles! */
 :focus {
@@ -743,8 +750,17 @@ body {
 }
 
 #content .bloc .content ul.toolbar li:hover {
-    border: 1 solid #FFFFFF;
+    border: 1px solid #FFFFFF;
     background-color: #D9D6D6;
+}
+
+#toolbar select {
+    padding: 0px 7px;
+    display: inline-block;
+    height: 30px;
+    width: 100px;
+    border: 1px solid #c7c7cc;
+    border-radius: 4px;
 }
 
 #content .wysiwyg {

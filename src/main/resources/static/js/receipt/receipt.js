@@ -94,15 +94,20 @@ $(function () {
             }]
     });
 
+    $("select#status").change(function(){
+        $('#table').bootstrapTable('refresh',queryParams);
+    });
 
     function queryParams(params) {
         var temp = {
             //minPrice: $('#minPrice').val(),
             //maxPrice: $('#maxPrice').val(),
-            //searchText: params.searchText,
+            status:$("#status").val(),
+            searchText: params.searchText,
             pageSize: params.pageSize,
             pageNumber: params.pageNumber
         };
         return temp;
     }
+
 });

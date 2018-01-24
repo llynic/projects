@@ -56,7 +56,7 @@ public class ShopController {
     public String list(PageResult result,Model model){
         List<Shop> shops = shopService.getShopList(result);
         model.addAttribute("shops",shops);
-        return "shop/list";
+        return "shop/list1";
     }
 
     /**
@@ -99,7 +99,7 @@ public class ShopController {
 
     /**
      * 更新商品状态
-     * 商品上架:由保存状态改为上架状态
+     * 商品上架:由未上架状态改为上架状态
      * @param id - 商品id
      * @return
      */
@@ -110,6 +110,22 @@ public class ShopController {
         Shop shop = shopService.shelfShop(id);
         return new JsonResult(true, 0000, "成功",shop);
     }
+
+    /**
+     * 更新商品状态
+     * 商品下架:由上架状态改为未上架状态
+     * @param id - 商品id
+     * @return
+     */
+    @RequestMapping(value = "/unShelf", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResult unShelf(@RequestParam("id") Integer id) {
+        logger.info("{}", id);
+        Shop shop = shopService.unShelfShop(id);
+        return new JsonResult(true, 0000, "成功",shop);
+    }
+
+
 
     /**
      * 保存商品(未上架)
@@ -149,8 +165,11 @@ public class ShopController {
      *
      * @return
      */
-    @RequestMapping(value = "/detail", method = RequestMethod.GET)
-    public String detail() {
+    @RequestMapping(value = "/detail/{id}", method = RequestMethod.GET)
+    public String detail(@PathVariable("id") Integer id,Model model) {
+        logger.info("{}",id);
+        Shop shop = shopService.getShopById(id);
+        model.addAttribute("shop",shop);
         return "shop/detail";
     }
 }

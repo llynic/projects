@@ -109,4 +109,18 @@ public class ShopServiceImpl implements ShopService {
         shopMapper.updateByPrimaryKey(shop);
         return shop;
     }
+
+    @Override
+    public Shop unShelfShop(Integer id) {
+        Shop shop = shopMapper.selectByPrimaryKey(id);
+        shop.setStatus("0");
+        shopMapper.updateByPrimaryKey(shop);
+        return shop;
+    }
+
+    @Override
+    public Shop getShopById(Integer id) {
+        Shop shop = shopMapper.selectByPrimaryKey(id);
+        return shop;
+    }
 }
